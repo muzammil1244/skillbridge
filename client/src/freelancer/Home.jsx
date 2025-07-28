@@ -117,7 +117,7 @@ console.log("reivew data",reviewdata)
   const Reviewfun = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://localhost:5000/review/review", {
+      const response = await fetch("https://skillbridge-x62a.onrender.com/review/review", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -179,7 +179,7 @@ if(icon === "true"){
     console.log("Sending review data:", getreviewdata); // ✅ Debug log
 
     try {
-      const res = await fetch("http://localhost:5000/review/add/review", {
+      const res = await fetch("https://skillbridge-x62a.onrender.com/review/add/review", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // ✅ MISSING EARLIER
@@ -228,7 +228,7 @@ if(icon === "true"){
         console.log("token type", typeof (token))
         // 👈 Token nikaalo
 
-        const jobdata = await fetch("http://localhost:5000/api/freelancer/jobs", {
+        const jobdata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/jobs", {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -281,7 +281,7 @@ if(icon === "true"){
     }
 
     try {
-      const data = await fetch("http://localhost:5000/api/profile", {
+      const data = await fetch("https://skillbridge-x62a.onrender.com/api/profile", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // ✅ safe and direct
@@ -348,7 +348,7 @@ if (getformdata.profileImage) {
 }
 
     try {
-      const update = await fetch("http://localhost:5000/api/user/profileupdate", {
+      const update = await fetch("https://skillbridge-x62a.onrender.com/api/user/profileupdate", {
         method: "PATCH",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -387,7 +387,7 @@ if (getformdata.profileImage) {
     }
 
     try {
-      const applicantdata = await fetch("http://localhost:5000/api/freelancer/applied-jobs", {
+      const applicantdata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/applied-jobs", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -475,7 +475,7 @@ const handleMouseLeave2 = () => {
   onMouseMove={handleMouseMove2}
   onMouseLeave={handleMouseLeave2}
   className="h-full w-full roundedobject-cover"
-  src={`http://localhost:5000/uploads/${getprofile.profileImage}`}
+  src={`https://skillbridge-x62a.onrender.com/uploads/${getprofile.profileImage}`}
   alt="profile image"
 />
 
@@ -900,7 +900,7 @@ setthem(false)
                 <h1 className="text-2xl  overflow-hidden col-span-3 md:text-lg text-[15px]  font-bold text-orange-500 mb-2 md:mb-3 flex items-center gap-2">
                 {element.title}
               </h1>
-              <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={`http://localhost:5000/uploads/${element.image}`}  alt="" />
+              <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={`https://skillbridge-x62a.onrender.com/uploads/${element.image}`}  alt="" />
               </div>
             <p
               className={`dark:text-secondary-text-color text-[12px] md:text-sm text-gray-700 md:mb-4 mb-2 cursor-pointer transition-all duration-300 ${showFullDesc ? " break-words" : "truncate"
@@ -1006,7 +1006,7 @@ setthem(false)
           </div>
           <img
             className="md:w-20 md:h-20 w-10 h-10 object-cover rounded-full shadow-md border"
-            src={`http://localhost:5000/uploads/${selectedJob.image}`}
+            src={`https://skillbridge-x62a.onrender.com/uploads/${selectedJob.image}`}
             alt="Company Logo"
           />
         </div>
@@ -1083,13 +1083,26 @@ setthem(false)
 
 
 
-        {
-          showNotification &&
+       {
+  showNotification && (
+    <div className="fixed top-5 left-1/2 -translate-x-1/2 z-50">
+      <div className="flex items-center gap-3 bg-purple-600 text-white px-5 py-2 rounded-2xl shadow-md">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="2"
+          stroke="currentColor"
+          className="w-5 h-5 text-white"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M12 4.5c.667 0 1.333.167 2 .5a7.5 7.5 0 11-4 0c.667-.333 1.333-.5 2-.5z" />
+        </svg>
+        <span className="text-sm font-medium">Action completed successfully!</span>
+      </div>
+    </div>
+  )
+}
 
-          <div>  <Nottification classname="flex absolute top-18 left-1/2 text-text-color -translate-x-1/2 bg-purple-500 px-3 py-1 rounded-2xl gap-2 justify-center items-center" />
-          </div>
-
-        }
 
         <div className="w-full h-fit dark:bg-card-color bg-white p-4 rounded-xl shadow-md">
           {/* Heading and Add Button */}
@@ -1161,7 +1174,7 @@ setthem(false)
                   <div className="flex items-center justify-between mb-2">
                     <p className="font-semibold text-gray-800 dark:text-text-color">{element.name}</p>
                     <img
-                      src={`http://localhost:5000/uploads/${element.profileImage}`}
+                      src={`https://skillbridge-x62a.onrender.com/uploads/${element.profileImage}`}
                       alt="profile"
                       className="w-8 h-8 rounded-full object-cover"
                     />

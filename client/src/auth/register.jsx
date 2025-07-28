@@ -35,7 +35,7 @@ const [showPassword, setShowPassword] = useState(false);
 
 
    try {
-    const response = await fetch("http://localhost:5000/api/auth/register", {
+    const response = await fetch("https://skillbridge-x62a.onrender.com/api/auth/register", {
       method: "POST",
       body: realFormData, // ✅ Don't stringify
     });
@@ -79,7 +79,6 @@ const [showPassword, setShowPassword] = useState(false);
 
 
           className="flex lg:h-15 overflow-hidden justify-around items-center   lg:mb-5 ">
-
 
           <h1 className="text-sm text-purple-500 font-bold"> Skill <span className="text-blue-900">Bridge</span> </h1>
 

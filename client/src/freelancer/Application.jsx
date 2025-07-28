@@ -11,7 +11,7 @@ const getapplicationdata = async() => {
 
 
   try{
-    const adata = await fetch("http://localhost:5000/api/freelancer/applied-jobs",{
+    const adata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/applied-jobs",{
       method:"GET",
       headers:{
          "Authorization" : `Bearer ${token}`
@@ -69,7 +69,6 @@ const theme = localStorage.getItem("theme")
         <h1 className="dark:text-accent-color text-orange-500 font-extrabold text-sm  md:text-2xl font-bold mb-6 text-center ">
           My Applications
         </h1>
-
         <div className="overflow-x-auto">
           <table className="w-full table-auto border dark:border-border-color border-gray-200 rounded-lg">
             <thead className="bg-gray-100 dark:bg-card-color  text-gray-700 text-left text-sm">

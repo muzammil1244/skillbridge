@@ -161,7 +161,7 @@ export const Home = () => {
     }
 
     try {
-      const data = await fetch("http://localhost:5000/api/profile", {
+      const data = await fetch("https://skillbridge-x62a.onrender.com/api/profile", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // ✅ safe and direct
@@ -189,7 +189,7 @@ export const Home = () => {
     const token = localStorage.getItem("token"); // ✅ yahin se lo
 
     try {
-      const update = await fetch("http://localhost:5000/api/user/profileupdate", {
+      const update = await fetch("https://skillbridge-x62a.onrender.com/api/user/profileupdate", {
         method: "PATCH",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -229,7 +229,7 @@ export const Home = () => {
     }
 
     try {
-      const jobsdata = await fetch("http://localhost:5000/api/employer/jobs", {
+      const jobsdata = await fetch("https://skillbridge-x62a.onrender.com/api/employer/jobs", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -267,7 +267,7 @@ export const Home = () => {
 
     if (getwarn.trim().toLowerCase() === getprofile.name.toLowerCase()) {
       try {
-        await fetch(`http://localhost:5000/api/delete/${id}`, {
+        await fetch(`https://skillbridge-x62a.onrender.com/api/delete/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -356,7 +356,7 @@ if(icon === "true"){
               onMouseMove={handleMouseMove2}
               onMouseLeave={handleMouseLeave2}
               className="h-full w-full rounded object-cover "
-              src={`http://localhost:5000/uploads/${getprofile.profileImage}`}
+              src={`https://skillbridge-x62a.onrender.com/uploads/${getprofile.profileImage}`}
               alt="profile image"
             /> :
 
@@ -493,7 +493,6 @@ if(icon === "true"){
           </div>
 
         </div>
-
       </div>
 
       <div className="  p-3  overflow-x-hidden md:col-span-5 lg:col-span-3 bg-white h-full dark:bg-bg-dark w-full  ">
@@ -665,10 +664,10 @@ if(icon === "true"){
                 <h1 className="md:text-2xl overflow-hidden col-span-3  font-bold text-orange-500 mb-3 flex items-center gap-2">
                   {element.title}
                 </h1>
-                <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={`http://localhost:5000/uploads/${element.image}`} alt="" />
+                <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={`https://skillbridge-x62a.onrender.com/uploads/${element.image}`} alt="" />
               </div>
 
-
+<img src="" alt="" />
               <p
                 className={`text-gray-700 dark:text-text-color text-[10px] md:text-sm md:mb-4 mb-2 cursor-pointer transition-all w-full duration-300 ${showFullDesc ? "whitespace-pre-wrap break-words" : "truncate"
                   }`}

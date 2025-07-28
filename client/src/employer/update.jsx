@@ -103,7 +103,7 @@ const updateID = job._id
   const token = localStorage.getItem("token");
 
   try {
-    await fetch(`http://localhost:5000/api/employer/update/${updateID}`, {
+    await fetch(`https://skillbridge-x62a.onrender.com/api/employer/update/${updateID}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -125,7 +125,7 @@ const updateID = job._id
       className="flex justify-around dark:bg-bg-dark"
     >
      <div className="flex p-5 justify-center h-15 hidden lg:block items-center gap-4">
-                                              <h1 className="text-sm text-purple-500 dark:text-white font-bold"> Skill <span className="text-blue-900 dark:text-accent-color ">Bridge</span> </h1>
+                                            <h1 className="text-sm text-purple-500 dark:text-white font-bold"> Skill <span className="text-blue-900 dark:text-accent-color ">Bridge</span> </h1>
 
       </div>
 

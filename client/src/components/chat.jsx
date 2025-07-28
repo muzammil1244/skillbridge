@@ -56,7 +56,7 @@ console.log(file)
   const fetchConversation = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`http://localhost:5000/api/conversation/list/${senderId}`, {
+      const res = await fetch(`https://skillbridge-x62a.onrender.com/api/conversation/list/${senderId}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ console.log(file)
   const fetchMessage = async (conversationId, user) => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`http://localhost:5000/api/message/${conversationId}`, {
+      const res = await fetch(`https://skillbridge-x62a.onrender.com/api/message/${conversationId}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -99,7 +99,7 @@ console.log(file)
   if (file) formData.append("file", file);
 
   try {
-    const response = await fetch('http://localhost:5000/api/message', {
+    const response = await fetch('https://skillbridge-x62a.onrender.com/api/message', {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
@@ -146,7 +146,7 @@ console.log(file)
               onClick={() => fetchMessage(item.conversationId, item)}
               className="flex items-center gap-4 px-3 py-2 rounded-lg cursor-pointer bg-white dark:bg-card-color hover:bg-gray-100 dark:hover:bg-gray-700 transition"
             >
-              <img className="w-12 h-12 rounded-full object-cover" src={`http://localhost:5000/uploads/${item.user.image}`} alt={item.user.name} />
+              <img className="w-12 h-12 rounded-full object-cover" src={`https://skillbridge-x62a.onrender.com/uploads/${item.user.image}`} alt={item.user.name} />
               <div className="flex flex-col justify-center overflow-hidden">
                 <h1 className="text-base font-semibold text-gray-800 dark:text-white truncate max-w-[160px]">{item.user.name}</h1>
                 <p className="text-sm text-gray-500 dark:text-accent-color truncate max-w-[160px]">{item.user.email}</p>
@@ -157,6 +157,7 @@ console.log(file)
           )}
         </div>
       </div>
+     
 
       {/* Chat Area */}
       <div className="flex-1 flex flex-col dark:bg-bg-dark px-2 relative">
@@ -203,9 +204,9 @@ console.log(file)
                   {fileUrl && (
                     <>
                       {fileUrl.endsWith(".jpg") || fileUrl.endsWith(".png") ? (
-                        <img src={`http://localhost:5000/uploads/${fileUrl}`} alt="sent image" className="md:mt-2 md:max-w-xs   rounded-lg" />
+                        <img src={`https://skillbridge-x62a.onrender.com/uploads/${fileUrl}`} alt="sent image" className="md:mt-2 md:max-w-xs   rounded-lg" />
                       ) : (
-                        <a href={`http://localhost:5000/uploads/${fileUrl}`} target="_blank" rel="noopener noreferrer" className="flex mt-2 items-center gap-1 text-sm underline">
+                        <a href={`https://skillbridge-x62a.onrender.com/uploads/${fileUrl}`} target="_blank" rel="noopener noreferrer" className="flex mt-2 items-center gap-1 text-sm underline">
                           <File02Icon /> View File
                         </a>
                       )}

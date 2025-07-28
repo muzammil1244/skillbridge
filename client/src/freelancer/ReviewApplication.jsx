@@ -73,7 +73,6 @@ const themetrue = location.state?.themtrue
     </a>
   </span>
 </p>
-
           <p className="md:text-sm text-[12px] dark:text-secondary-text-color text-gray-700">
             <span className="font-semibold">Cover Letter:</span>{" "}
             {job.application.coverlater}

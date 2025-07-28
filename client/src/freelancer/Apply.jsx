@@ -49,7 +49,7 @@ applydata.append("rating",form.rating)
 
 try{
 
-const data = await fetch(`http://localhost:5000/api/${jobid}/jobapply`,{
+const data = await fetch(`https://skillbridge-x62a.onrender.com/api/${jobid}/jobapply`,{
   method:"POST",
   headers: {
         "Authorization": `Bearer ${token}`,
@@ -94,7 +94,6 @@ const themtrue = location.state?.themtrue ?? false;
   className="min-h-screen w-full dark:bg-border-color bg-purple-100 flex items-center justify-center px-4 py-6"
 >
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl bg-white dark:bg-bg-dark rounded-2xl shadow-xl overflow-hidden">
-
     {/* Apply Form */}
     <div className="p-8">
       <h2 className="text-2xl font-bold text-purple-600 dark:text-text-color mb-6">

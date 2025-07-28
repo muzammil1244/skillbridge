@@ -38,7 +38,7 @@ export const Applications = () => {
         const token = localStorage.getItem("token")
 
         try {
-            const data = await fetch(`http://localhost:5000/api/employer/${jobId}`, {
+            const data = await fetch(`https://skillbridge-x62a.onrender.com/api/employer/${jobId}`, {
                 method: "GET",
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -75,7 +75,7 @@ export const Applications = () => {
     setActiveDropdownIndex(null);
 
     try {
-        const response = await fetch(`http://localhost:5000/api/update-status/${jobId}/${freelancerId}`, {
+        const response = await fetch(`https://skillbridge-x62a.onrender.com/api/update-status/${jobId}/${freelancerId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -97,7 +97,7 @@ export const Applications = () => {
         <div data-theme={`${location.state?.themtrue ? "dark" : ""}`} className="min-h-screen dark:bg-bg-dark bg-white text-gray-800 dark:text-text-color p-6">
             <div className="bg-purple-500 overflow-x-hidden dark:bg-accent-color text-white dark:text-text-color px-2 md:px-6 py-4 rounded-lg shadow mb-6 flex justify-between items-center">
                 <div className="flex md:gap-5 gap-1 items-center">
-                    <ArrowLeft02Icon onClick={() => {
+                 <ArrowLeft02Icon onClick={() => {
                         navigate("/employer/home")
                     }}  className="hover:scale-120 duration-200  md:size-[25px] size-[19px]" />
                     <h1 className="md:text-2xl text-sm font-bold">Job Applications</h1>
@@ -139,7 +139,7 @@ export const Applications = () => {
                     >
                         <div className="flex items-center mb-4 gap-4">
                             <img
-                                src={`http://localhost:5000/uploads/${applicant.profileImage}`}
+                                src={`https://skillbridge-x62a.onrender.com/uploads/${applicant.profileImage}`}
                                 alt={applicant.name}
                                 className="w-16 h-16 rounded-full object-cover border-2 dark:border-secondary-text-color border-purple-400"
                             />

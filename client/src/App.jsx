@@ -23,8 +23,8 @@ function AuthRedirect() {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      navigate("/login");
-      return;
+      return navigate("/login");
+     
     }
 
     try {
