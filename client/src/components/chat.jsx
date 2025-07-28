@@ -20,7 +20,6 @@ export default function ChatApp() {
   const reciverId = location.state?.reciverId;
   const conversationId = location.state?.conversationId;
   const messageref = useRef(null);
-console.log(file)
   useEffect(() => {
     const socketInstance = io("https://skillbridge-x62a.onrender.com");
     setsocket(socketInstance);
@@ -65,7 +64,6 @@ console.log(file)
       const data = await res.json();
       setConversation(data);
     } catch (err) {
-      console.log("Conversation fetch error:", err);
     }
   };
 

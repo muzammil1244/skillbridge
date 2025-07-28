@@ -109,7 +109,6 @@ const [filtertrue, setFiltertrue] = useState(false)
 
   const [getreview, setreview] = useState([])
 let reviewdata = showAll ? getreview : getreview.slice(0, 4);
-console.log("reivew data",reviewdata)
   useEffect(() => {
     localStorage.setItem("myValue", themtrue);
   }, [themtrue]);
@@ -125,7 +124,6 @@ console.log("reivew data",reviewdata)
       });
 
       if (!response.ok) {
-        console.log("Server error:", response.status);
         return;
       }
 
@@ -176,7 +174,6 @@ if(icon === "true"){
   const PostReview = async () => {
     const token = localStorage.getItem("token");
 
-    console.log("Sending review data:", getreviewdata); // ✅ Debug log
 
     try {
       const res = await fetch("https://skillbridge-x62a.onrender.com/review/add/review", {
@@ -225,7 +222,6 @@ if(icon === "true"){
         const token = localStorage.getItem("token");
         settoken(token)
 
-        console.log("token type", typeof (token))
         // 👈 Token nikaalo
 
         const jobdata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/jobs", {
@@ -289,7 +285,6 @@ if(icon === "true"){
       });
 
       const pdata = await data.json();
-      console.log(pdata);
       setprofile(pdata);
 
     } catch (err) {
@@ -377,7 +372,6 @@ if (getformdata.profileImage) {
 
   }
 
-  console.log("filterfalse or treue",filtertrue)
   const applicationdata = async () => {
     const token = localStorage.getItem("token"); // ✅ yahin se lo
 
@@ -630,7 +624,7 @@ const handleMouseLeave2 = () => {
                     <ImageAdd02Icon className="text-gray-300" />
                     <input onChange={handleChange} placeholder="User Email" className="border-gray-300 dark:border-border-color
   w-full shadow-inner shadow-2xl focus:-2 outline-none dark:focus:border-border-color focus:border-purple-500  text-center checked:bg-purple-500 dark:shadow-shadow-color shadow-purple-700
-  border-2 py-[2px] rounded-xl dark:text-secondary-text-color text-gray-300" name="profileImage" type="file" required />
+  border-2 py-[2px] rounded-xl dark:text-secondary-text-color text-gray-300" name="profileImage" type="file"  />
                   </div>
 
 

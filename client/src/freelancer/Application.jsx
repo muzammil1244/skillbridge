@@ -18,10 +18,7 @@ const getapplicationdata = async() => {
       }
     })
 
-    if(!adata.ok){
-      console.log("server problem ",adata);
-      
-    }
+   
 
     setdata(await adata.json())
   }catch(err){

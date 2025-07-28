@@ -25,7 +25,7 @@ export const Applications = () => {
   
     const navigate = useNavigate()
 
-    console.log("themmm", location.state)
+    // console.log("themmm", location.state)
 
     useEffect(() => {
         applicationdata()
@@ -47,12 +47,12 @@ export const Applications = () => {
             })
 
             const json = await data.json();
-            console.log(json); // Add this to check structure
+            // console.log(json); // Add this to check structure
 
             setApplicants(json.applicants); // ✅ Use correct key
         } catch (err) {
 
-            console.log(err)
+            // console.log(err)
         }
 
 

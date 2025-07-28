@@ -114,7 +114,6 @@ export const Home = () => {
   const navigate = useNavigate()
 
 
-  console.log(cartdata)
 
 
   // handlachnag 
@@ -156,7 +155,6 @@ export const Home = () => {
     const token = localStorage.getItem("token"); // ✅ yahin se lo
 
     if (!token) {
-      console.log("No token found");
       return;
     }
 
@@ -169,7 +167,6 @@ export const Home = () => {
       });
 
       const pdata = await data.json();
-      console.log(pdata);
       setprofile(pdata);
 
     } catch (err) {
@@ -238,13 +235,11 @@ export const Home = () => {
 
       const data = await jobsdata.json()
       setjobarr(data)
-      console.log("job arr", data)
     } catch (err) {
       console.log(err)
     }
   }
 
-  console.log("jobs", getjobarr)
 
   const filterdata = getjobarr.filter((job) => {
     const jobtitle = !filters.title || job.title.toLowerCase().includes(filters.title.toLowerCase());
@@ -264,10 +259,7 @@ export const Home = () => {
 
   const DeleteJob = async (id) => {
     const token = localStorage.getItem("token");
-   console.log("getwarn:", getwarn);
-console.log("getprofile.name:", getprofile.name);
-console.log("Comparison result:", getwarn.trim().toLowerCase() === getprofile.name.trim().toLowerCase())
-
+   
 
 
     if (getwarn.trim().toLowerCase() === getprofile.name.trim().toLowerCase()) {
@@ -287,7 +279,7 @@ console.log("Comparison result:", getwarn.trim().toLowerCase() === getprofile.na
       } catch (err) {
         console.log("Delete failed:", err);
       }
-    } else {    console.log(getwarn)
+    } else {    
 
       setalert(true);
       setTimeout(() => {
@@ -311,7 +303,6 @@ console.log("Comparison result:", getwarn.trim().toLowerCase() === getprofile.na
 useEffect(()=>{
  let icon = localStorage.getItem("myValue")
   // Only if you're not using context
-console.log("is true or false",icon)
 
 if(icon === "true"){
   setSelected("moon")

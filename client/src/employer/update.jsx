@@ -54,7 +54,6 @@ const handleChange = (e) => {
 
   const location = useLocation()
 
-  console.log(location.state)
 
 const job = location?.state?.element;
 

@@ -33,7 +33,6 @@ const Applyfun = async(e)=>{
 e.preventDefault()
 
 if (!form.resume || !form.coverlater || !form.rating) {
-  console.warn("All fields required");
   return;
 }
 const applydata = new FormData()
