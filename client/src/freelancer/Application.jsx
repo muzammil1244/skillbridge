@@ -49,7 +49,7 @@ const theme = localStorage.getItem("theme")
 
 
   return (
-    <div data-theme ={`${theme?"dark":""}`}  className="min-h-screen w-screen dark:bg-bg-dark bg-purple-500 p-6">
+    <div data-theme ={`${theme== "true"?"dark":""}`}  className="min-h-screen w-screen dark:bg-bg-dark bg-purple-500 p-4 md:p-6">
       <div className=" dark:bg-card-color dark:border-border-color bg-white rounded-xl shadow-md p-6">
 
         <div className="flex gap-10 items-center">

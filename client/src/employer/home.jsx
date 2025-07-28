@@ -264,8 +264,14 @@ export const Home = () => {
 
   const DeleteJob = async (id) => {
     const token = localStorage.getItem("token");
+   console.log("getwarn:", getwarn);
+console.log("getprofile.name:", getprofile.name);
+console.log("Comparison result:", getwarn.trim().toLowerCase() === getprofile.name.trim().toLowerCase())
 
-    if (getwarn.trim().toLowerCase() === getprofile.name.toLowerCase()) {
+
+
+    if (getwarn.trim().toLowerCase() === getprofile.name.trim().toLowerCase()) {
+      console.log("yesssssssssssss")
       try {
         await fetch(`https://skillbridge-x62a.onrender.com/api/delete/${id}`, {
           method: "DELETE",
@@ -281,7 +287,8 @@ export const Home = () => {
       } catch (err) {
         console.log("Delete failed:", err);
       }
-    } else {
+    } else {    console.log(getwarn)
+
       setalert(true);
       setTimeout(() => {
         setalert(false)
@@ -504,7 +511,7 @@ if(icon === "true"){
                                                     <h1 className="text-sm text-purple-500 dark:text-white font-bold"> Skill <span className="text-blue-900 dark:text-accent-color ">Bridge</span> </h1>
 
             </div>
-           <div className="lg:w-2/6 md:w-2/7 items-center flex w-2/7  overflow-hidden relative">
+           <div className="lg:w-2/6 md:w-2/7 items-center flex w-2/5  overflow-hidden relative">
               <SearchVisualIcon
                 size={20}
                 className="absolute md:size-[20px] pl-1   size-[15px] hover:scale-110 duration-200 left-0 md:left-3 top-1/2 transform -translate-y-1/2 text-purple-500 dark:text-text-color cursor-pointer "
@@ -513,7 +520,7 @@ if(icon === "true"){
   onChange={handlefilter}
   type="text"
   name="title"
-  className="bg-gray-100 dark:bg-card-color text-center  w-full md:pl-10 md:pr-3 md:py-2 pl-2 py-[1px] text-xs placeholder:text-[12px] md:rounded rounded-md focus:outline-none dark:text-secondary-text-color"
+  className="bg-gray-100 dark:bg-card-color text-center  w-full md:pl-10 md:pr-3 md:py-2 pl-2 py-1 text-xs placeholder:text-[12px] md:rounded rounded-md focus:outline-none dark:text-secondary-text-color"
   placeholder="search...."
 />
 
@@ -531,7 +538,7 @@ if(icon === "true"){
                 })
               }} className="flex cursor-pointer bg-gray-100 dark:bg-card-color lg:gap-3 md:2 shadow-md hover:bg-gray-100 dark:hover:bg-border-color duration-100 
               dark:border-border-color lg:py-[8px] md:py-[6px]  rounded-[7px] justify-center items-center px-[5px] md:px-2 lg:px-3">
-                <h1 className="text-gray-800 md:px-0 px-1 md:py-0 py-[3px] dark:text-secondary-text-color text-[10px] md:text-sm md:font-bold">create job</h1>
+                <h1 className="text-gray-800 md:px-0 px-1 md:py-0 py-1 dark:text-secondary-text-color text-[10px] md:text-sm md:font-bold">create job</h1>
 
                 <NodeAddIcon size={20} color="gray" className="dark:text-secondary-text-color md:size-[20px] size-[12px]  " />
 
@@ -545,7 +552,7 @@ if(icon === "true"){
                     setthem(!showthem)
                     setmune(false)
 
-                  }} tabIndex={0} className={` px-[5px] py-[4px] ${showthem ? "border-purple-500 dark:border-accent-color" : ""} cursor-pointer gap-3 relative hover:bg-gray-100 dark:text-text-color dark:hover:bg-card-color duration-100 bg-gray-100 dark:bg-card-color shadow-md  dark:border-border-color items-center md:rounded-[7px] rounded-[5px]  md:py-[8px]  md:px-3 `}>
+                  }} tabIndex={0} className={` px-[5px] py-[5px] ${showthem ? "border-purple-500 dark:border-accent-color" : ""} cursor-pointer gap-3 relative hover:bg-gray-100 dark:text-text-color dark:hover:bg-card-color duration-100 bg-gray-100 dark:bg-card-color shadow-md  dark:border-border-color items-center md:rounded-[7px] rounded-[5px]  md:py-[8px]  md:px-3 `}>
                 {
                   options.find(opt => opt.label === selected)?.icon
 
@@ -588,7 +595,7 @@ if(icon === "true"){
               <div onClick={() => {
                 setmune(!showmenu)
                 setthem(false)
-              }} className=" cursor-pointer relative max-w-full min-w-fit flex gap-3  hover:bg-gray-100 duration-100  dark:hover:bg-border-color rounded-md shadow-md dark:bg-card-color  bg-gray-100 dark:border-border-color md:py-[8px] px-[5px] py-[4px] md:rounded-[7px] md:px-3">
+              }} className=" cursor-pointer relative max-w-full min-w-fit flex gap-3  hover:bg-gray-100 duration-100  dark:hover:bg-border-color rounded-md shadow-md dark:bg-card-color  bg-gray-100 dark:border-border-color md:py-[8px] px-[5px] py-[5px] md:rounded-[7px] md:px-3">
 
                 <Menu01Icon className="dark:text-text-color md:size-[16px] size-[12px] " color="black" />
                 {

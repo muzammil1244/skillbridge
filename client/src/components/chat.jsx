@@ -22,7 +22,7 @@ export default function ChatApp() {
   const messageref = useRef(null);
 console.log(file)
   useEffect(() => {
-    const socketInstance = io("http://localhost:5000");
+    const socketInstance = io("https://skillbridge-x62a.onrender.com");
     setsocket(socketInstance);
     if (senderId) socketInstance.emit("addUser", senderId);
 
@@ -178,7 +178,7 @@ console.log(file)
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
               className="size-10 rounded-full"
-              src={`http://localhost:5000/uploads/${receiver.user?.image || receiver.default?.profileImage}`}
+              src={`https://skillbridge-x62a.onrender.com/uploads/${receiver.user?.image || receiver.default?.profileImage}`}
               alt=""
             />
             <h1 className="font-bold text-gray-900 dark:text-white text-lg">

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { jwtDecode } from "jwt-decode";
-
+import img1 from "../imgs/Computer login-amico.svg"
 export const Loging = () => {
   const [getdata, setdata] = useState({
     email: "",
@@ -55,14 +55,14 @@ export const Loging = () => {
           initial={{ x: -30 }}
           animate={{ x: 0 }}
           transition={{ delay: 0.3 }}
-          className="flex items-center justify-around mb-10"
+          className="flex items-center justify-around  md:mb-10"
         >
           <h1 className="text-sm text-purple-500 font-bold"> Skill <span className="text-blue-900">Bridge</span> </h1>
-          <h1 className="text-xl text-purple-600 font-bold ml-6">Login</h1>
+          <h1 className="md:text-xl text-sm  text-purple-600 font-bold ml-6">Login</h1>
           <div className="ml-auto">
             <h1
               onClick={() => navigate("/register")}
-              className="text-purple-500 hover:border-purple-500 w-fit hover:border-b-[3px] cursor-pointer font-bold"
+              className="text-purple-500 md:text-lg text-sm hover:border-purple-500 w-fit hover:border-b-[3px] cursor-pointer font-bold"
             >
               New Register
             </h1>
@@ -105,7 +105,7 @@ export const Loging = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
             <button
               type="submit"
-              className="w-full py-2 bg-purple-500 hover:bg-purple-600 transition-all text-white rounded-lg text-lg font-semibold shadow-md"
+              className="w-full md:py-2 py-1 bg-purple-500 hover:bg-purple-600 transition-all text-white rounded-lg text-lg font-semibold shadow-md"
             >
               Submit
             </button>
@@ -120,7 +120,7 @@ export const Loging = () => {
           animate={{ y: 0 }}
           transition={{ type: "spring", stiffness: 60 }}
           className="w-72 mb-6"
-          src="/src/imgs/Computer login-amico.svg"
+          src={img1}
           alt="hero"
         />
 

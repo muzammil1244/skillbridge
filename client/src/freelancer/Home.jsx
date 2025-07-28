@@ -661,7 +661,7 @@ const handleMouseLeave2 = () => {
                                                     <h1 className="text-sm text-purple-500 dark:text-white font-bold"> Skill <span className="text-blue-900 dark:text-accent-color ">Bridge</span> </h1>
 
             </div>
-          <div className="lg:w-2/6 md:w-2/7 items-center flex w-2/7  overflow-hidden relative">
+          <div className="lg:w-2/6 md:w-2/7 items-center flex w-2/5  overflow-hidden relative">
               <SearchVisualIcon
                 size={20}
                 className="absolute md:size-[20px] pl-1   size-[15px] hover:scale-110 duration-200 left-0 md:left-3 top-1/2 transform -translate-y-1/2 text-purple-500 dark:text-text-color cursor-pointer "
@@ -670,7 +670,7 @@ const handleMouseLeave2 = () => {
   onChange={handlefilter}
   type="text"
   name="title"
-  className="bg-gray-100 dark:bg-card-color text-center w-full md:pl-10 md:pr-3 md:py-2 pl-2 py-[1px] text-xs placeholder:text-[12px] md:rounded rounded-md focus:outline-none dark:text-secondary-text-color"
+  className="bg-gray-100 dark:bg-card-color text-center w-full md:pl-10 md:pr-3 md:py-2 pl-2 py-1 text-xs placeholder:text-[12px] md:rounded rounded-md focus:outline-none dark:text-secondary-text-color"
   placeholder="search........"
 />
 
@@ -680,7 +680,7 @@ const handleMouseLeave2 = () => {
 
               menufalse(false)
               setthem(false)
-            }} className={`${filtertrue ? "border-purple-500" : null} relative dark:bg-card-color flex gap-1  text-sm text-[15px] items-center cursor-pointer lg:gap-3 md:gap-2  dark:hover:bg-border-color duration-100 bg-gray-100 shadow-sm md:py-[6px]  lg:py-[8px] rounded-[7px] py-1 px-1`}>
+            }} className={`${filtertrue ? "border-purple-500" : null} relative dark:bg-card-color flex gap-1  text-sm text-[15px] items-center cursor-pointer lg:gap-3 md:gap-2  dark:hover:bg-border-color duration-100 bg-gray-100 shadow-sm md:py-[6px]  lg:py-[8px] rounded-[7px] py-[5px] px-1`}>
               <h1 onClick={()=>           setFiltertrue(true)} className=" dark:text-secondary-text-color text-[10px] md:text-sm text-gray-800 font-bold">Filter</h1>
               <FilterAddIcon onClick={()=>           setFiltertrue(true)}   className="md:size-[20px] size-[14px] dark:text-gray-300 text-gray-800" />
                     {filtertrue ? 
