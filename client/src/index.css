@@ -1,3 +1,26 @@
 @import "tailwindcss";
 
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme{
+
+--color-bg-dark: #121212;
+  --color-card-color: #1E1E1E;
+  --color-text-color: #E0E0E0;
+  --color-secondary-text-color: #B0B0B0;
+  --color-accent-color: #00BCD4;
+  --color-accent-light: #4DD0E1;
+  --color-border-color: #2E2E2E;
+  --color-hover-color: #2A2A2A;
+  --color-error-color: #EF5350;
+  --color-success-color: #66BB6A;
+    --color-shadow-color: rgba(0, 0, 0, 0.5);
+
+
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+ 
