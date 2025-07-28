@@ -25,7 +25,7 @@ const server = http.createServer(app)
 let users = []
 const io = new Server(server, {
   cors: {
-    origin: "skillbridge-blue.vercel.app", // ✅ No space, no trailing slash
+    origin: "https://skillbridge-indol.vercel.app/login", // ✅ No space, no trailing slash
     methods: ["GET", "POST"],
   },
 });
