@@ -640,7 +640,7 @@ if(icon === "true"){
                     </div>
                     <div className="relative group flex gap-2 items-center cursor-pointer">
                       <CustomerService02Icon className="group-hover:text-purple-500 dark:group-hover:text-accent-color size-[17px] md:size-[25px] text-gray-700 dark:text-secondary-text-color" />
-                      <h1 className="group-hover:text-purple-500 text-[13px] md:text-[15px]  dark:group-hover:text-accent-color  text-gray-700 dark:text-secondary-text-color" > +91 844641####</h1>
+                      <h1 className="group-hover:text-purple-500 text-[10px] md:text-[15px]  dark:group-hover:text-accent-color  text-gray-700 dark:text-secondary-text-color" > +91 844641####</h1>
                     </div>
                   </motion.div> : ""
                 }
