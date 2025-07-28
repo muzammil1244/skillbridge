@@ -1,4 +1,4 @@
-import { LockPasswordIcon, Mail01Icon, UserSquareIcon } from "hugeicons-react";
+import { LockPasswordIcon, Mail01Icon, UserSquareIcon, EyeIcon  } from "hugeicons-react";
 import { useState } from "react";
 import { motion } from "motion/react"
 import { useNavigate, useNavigation } from "react-router-dom";
@@ -11,6 +11,7 @@ export const Register = () => {
     reason: "",
     profileImage: "",
   });
+const [showPassword, setShowPassword] = useState(false);
 
   const navigate= useNavigate()
   const handleChange = (e) => {
@@ -82,7 +83,7 @@ export const Register = () => {
 
           <h1 className="text-sm text-purple-500 font-bold"> Skill <span className="text-blue-900">Bridge</span> </h1>
 
-          <h1 className="text-3xl text-purple-600  flex ml-10    font-bold">Registration</h1>
+          <h1 className="text-3xl text-purple-600  flex ml-10 text-sm md:text-lg    font-bold">Registration</h1>
 
         </ motion.div>
         <form className="md:space-y-4 md:block h-2/3 flex md:mt-0 mt-10 flex-col justify-around" onSubmit={Submitfun}>
@@ -126,26 +127,31 @@ export const Register = () => {
               className="w-full px-2 py-1 p-2 border border-gray-300 shadow-sm  rounded"
             />
           </motion.div>
+<motion.div
+  initial={{ x: -10 }}
+  animate={{ x: 0 }}
+  transition={{ delay: 1.3 }}
+>
+  <label className="block text-gray-700 mb-2 flex gap-2">
+    <LockPasswordIcon /> Password
+  </label>
+  <div className="relative">
+    <input
+      type={showPassword ? "text" : "password"}
+      name="password"
+      placeholder="Enter password"
+      onChange={handleChange}
+      className="w-full px-2 py-1 p-2 border border-gray-300 shadow-sm rounded pr-10"
+    />
+    <span
+      onClick={() => setShowPassword(!showPassword)}
+      className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500"
+    >
+      {showPassword ? <EyeIcon size={16}/>:<EyeIcon size={14}/> }
+    </span>
+  </div>
+</motion.div>
 
-          <motion.div
-            initial={{
-              x: -10
-            }}
-            animate={{
-              x: 0
-            }}
-            transition={{
-              delay: 1.3
-            }}>
-            <label className="block text-gray-700 mb-2  flex gap-2"><LockPasswordIcon /> password </label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter password"
-              onChange={handleChange}
-              className="w-full px-2 py-1 p-2 border border-gray-300 shadow-sm  rounded"
-            />
-          </motion.div>
 
           <motion.div
             initial={{
