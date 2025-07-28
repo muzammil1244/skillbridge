@@ -14,5 +14,8 @@ export default defineConfig({
     hmr: {
       overlay: true,
     },
+      build: {
+    outDir: 'dist'  
+  }
   },
 )
