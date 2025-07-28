@@ -21,11 +21,14 @@ const app = express();
 // io connection 
 
 const server = http.createServer(app)
-
+app.use(cors({
+  origin: "https://skillbridge-indol.vercel.app", // 👈 without /login
+  credentials: true,
+}));
 let users = []
 const io = new Server(server, {
   cors: {
-    origin: "https://skillbridge-indol.vercel.app/login", // ✅ No space, no trailing slash
+    origin: "https://skillbridge-indol.vercel.app", // ✅ No space, no trailing slash
     methods: ["GET", "POST"],
   },
 });
