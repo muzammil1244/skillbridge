@@ -1,5 +1,5 @@
 import { ArrowLeft02Icon, ArrowLeft04Icon, ArrowLeft05Icon, Backpack02Icon, Building03Icon, File02Icon, GoBackward10SecIcon, Note01Icon, Office365Icon, StarCircleIcon } from 'hugeicons-react';
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {motion} from "motion/react"
 export   function Apply() {

@@ -1,5 +1,4 @@
 import {  EyeIcon ,ArrowLeft02Icon, PermanentJobIcon, UserSquareIcon, Mail01Icon, Profile02Icon, TimeQuarterPassIcon} from "hugeicons-react";
-import { use } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const Review = () => {

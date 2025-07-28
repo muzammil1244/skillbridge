@@ -2,7 +2,6 @@ import { useState,useEffect } from "react";
 
 import { ArrowLeft01Icon, ArrowLeft03Icon, ArrowLeft04Icon } from "hugeicons-react"
 import { useLocation, useNavigate } from "react-router-dom"
-import { UpdateJob } from "../../../server/controllers/jobController";
 export  function 
 
 
