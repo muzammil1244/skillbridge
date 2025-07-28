@@ -757,7 +757,12 @@ if(icon === "true"){
                 </div>
               </div>
             </div>
-          }) : ""
+          }) :<div className="w-full hover:scale-101 duration-500 flex justify-center h-fill bg-purple-200 rounded-2xl  shadow-purple-300 shadow-lg mt-10 self-center ">
+
+<h1 className=" md:text-sm dark:text-secondary-text-color  py-10 md:px-10 text-sm text-center    ">You haven’t created any jobs yet.
+If you wish to post a job, you can easily create one using the “Create Job” button.</h1>
+
+          </div>
         }
 
 
