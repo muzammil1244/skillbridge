@@ -956,7 +956,7 @@ setthem(false)
                   setSelectedJob(element);
                   getpage(true);
                 }}
-                className=" cursor-pointer bg-purple-400 dark:bg-secondary-text-color dark:text-card-color rounded-2xl dark:hover:bg-text-color hover:bg-purple-500 md:text-lg text-[12px] px-3 md:px-6 py-1 md:py-2 duration-200"
+                className=" cursor-pointer bg-purple-400 text-white dark:bg-secondary-text-color dark:text-card-color rounded-2xl dark:hover:bg-text-color hover:bg-purple-500 md:text-lg text-[12px] px-3 md:px-6 py-1 md:py-2 duration-200"
               >
                 View
               </button>
