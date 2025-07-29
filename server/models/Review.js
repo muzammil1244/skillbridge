@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const model = new mongoose.Schema({
   name: {
-    type: String, // 👈 naam string me store hoga
+    type: String, 
     required: true,
   },
   rate:{

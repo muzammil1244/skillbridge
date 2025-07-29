@@ -68,6 +68,8 @@ export const Home = () => {
     { label: "moon", icon: <Moon01Icon size={16} className="md:size-[16px] size-[12px] " /> },
 
   ];
+    const [loader,settloader] = useState(false)
+
   const [getprofile, setprofile] = useState({})
   const [getformdata, setFormData] = useState({
     name: null,
@@ -177,13 +179,29 @@ export const Home = () => {
   // update profile
   const updateprofile = async (e) => {
     e.preventDefault()
+console.log("updat fun osreked")
+    const token = localStorage.getItem("token")
     const realFormData = new FormData();
-    realFormData.append("name", getformdata.name);
-    realFormData.append("email", getformdata.email);
-    realFormData.append("password", getformdata.password);
-    realFormData.append("roll", getformdata.reason);
-    realFormData.append("profileImage", getformdata.profileImage); // this must be the File object
-    const token = localStorage.getItem("token"); // ✅ yahin se lo
+
+    if (getformdata.name && getformdata.name.trim() !== "") {
+      realFormData.append("name", getformdata.name);
+    }
+
+    if (getformdata.email && getformdata.email.trim() !== "") {
+      realFormData.append("email", getformdata.email);
+    }
+
+    if (getformdata.password && getformdata.password.trim() !== "") {
+      realFormData.append("password", getformdata.password);
+    }
+
+    if (getformdata.reason && getformdata.reason.trim() !== "") {
+      realFormData.append("roll", getformdata.reason);
+    }
+
+    if (getformdata.profileImage) {
+      realFormData.append("profileImage", getformdata.profileImage);
+    }
 
     try {
       const update = await fetch("https://skillbridge-x62a.onrender.com/api/user/profileupdate", {
@@ -197,9 +215,16 @@ export const Home = () => {
 
       // 🚀 Page refresh ho jayega
 
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+      if(data.ok){
+        settloader(false)
+            window.location.reload();
+      }
+      if(data.ok){
+        settloader(false)
+            window.location.reload();
+      }
+    
+     
 
 
 
@@ -259,7 +284,7 @@ export const Home = () => {
 
   const DeleteJob = async (id) => {
     const token = localStorage.getItem("token");
-   
+   settloader(true)
 
 
     if (getwarn.trim().toLowerCase() === getprofile.name.trim().toLowerCase()) {
@@ -271,8 +296,8 @@ export const Home = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-
-        // Optional: Refresh job list or show success
+settloader(false)
+        //set Optional: Refresh job list or show success
         setwarn(false); // close modal
         ssetwarn("");
         window.location.reload()   // clear input
@@ -469,7 +494,7 @@ if(icon === "true"){
                   <div className="flex gap-4 justify-center items-center 
  ">
                     <ImageAdd02Icon className="text-gray-300" />
-                    <input onChange={handleChange} placeholder="User Email" className="border-gray-300 dark:border-border-color
+                    <input onChange={handleChange} placeholder="image" className="border-gray-300 dark:border-border-color
   w-full shadow-inner shadow-2xl focus:-2 outline-none dark:focus:border-border-color focus:border-purple-500  text-center checked:bg-purple-500 dark:shadow-shadow-color shadow-purple-700
   border-2 py-[2px] rounded-xl dark:text-secondary-text-color text-gray-300" name="profileImage" type="file" />
                   </div>
@@ -480,7 +505,13 @@ if(icon === "true"){
                       editefalse(!editetrue)
 
                     }} className=" bg-red-500 cursor-pointer opacity-80  w-full rounded-xl text-gray-300 py-2">Cancle</button>
-                    <button type="submit" className="bg-orange-500 cursor-pointer opacity-80  w-full rounded-xl text-gray-300 py-2">Save</button>
+                    <button type="submit" className="bg-orange-500 cursor-pointer opacity-80  w-full rounded-xl text-gray-300 py-2"> {loader? <div className="flex w-full h-full justify-center items-center" role="status">
+                <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 dark:fill-white  fill-purple-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+                  <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
+                </svg>
+                <span class="sr-only">Loading...</span>
+              </div>:<h2>Save</h2>}</button>
 
                   </div>
 
@@ -633,11 +664,11 @@ if(icon === "true"){
                     </div>
                     <div className="relative group flex gap-2 items-center cursor-pointer">
                       <HelpSquareIcon className="group-hover:text-purple-500 size-[17px] md:size-[25px] dark:group-hover:text-accent-color  text-[15px] text-gray-700 dark:text-secondary-text-color" />
-                      <h1 className="group-hover:text-purple-500 text-[13px] md:text-[15px]  dark:group-hover:text-accent-color text-[15px] text-gray-700 dark:text-secondary-text-color" >Help</h1>
+                      <h1 className="group-hover:text-purple-500 text-[13px] md:text-[15px]  dark:group-hover:text-accent-color  text-gray-700 dark:text-secondary-text-color" >Help</h1>
                     </div>
                     <div className="relative group flex gap-2 items-center cursor-pointer">
                       <CustomerService02Icon className="group-hover:text-purple-500 dark:group-hover:text-accent-color size-[17px] md:size-[25px] text-gray-700 dark:text-secondary-text-color" />
-                      <h1 className="group-hover:text-purple-500 text-[10px] md:text-[15px]  dark:group-hover:text-accent-color  text-gray-700 dark:text-secondary-text-color" > +91 844641####</h1>
+                      <h1 className="group-hover:text-purple-500 text-[10px] md:text-[15px]  dark:group-hover:text-accent-color  text-gray-700 dark:text-secondary-text-color" > +91 8446411038</h1>
                     </div>
                   </motion.div> : ""
                 }
@@ -665,7 +696,6 @@ if(icon === "true"){
                 <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={`https://skillbridge-x62a.onrender.com/uploads/${element.image}`} alt="" />
               </div>
 
-<img src="" alt="" />
               <p
                 className={`text-gray-700 dark:text-text-color text-[10px] md:text-sm md:mb-4 mb-2 cursor-pointer transition-all w-full duration-300 ${showFullDesc ? "whitespace-pre-wrap break-words" : "truncate"
                   }`}
@@ -748,7 +778,7 @@ if(icon === "true"){
                 </div>
               </div>
             </div>
-          }) :<div className="w-full hover:scale-101 duration-500 flex justify-center h-fill bg-purple-200 rounded-2xl  shadow-purple-300 shadow-lg mt-10 self-center ">
+          }) :<div className="w-full dark:bg-card-color dark:border-border-color hover:scale-101 duration-500 flex justify-center h-fill bg-purple-200 rounded-2xl  shadow-purple-300 shadow-lg mt-10 self-center ">
 
 <h1 className=" md:text-sm dark:text-secondary-text-color  py-10 md:px-10 text-sm text-center    ">You haven’t created any jobs yet.
 If you wish to post a job, you can easily create one using the “Create Job” button.</h1>
@@ -787,7 +817,13 @@ If you wish to post a job, you can easily create one using the “Create Job” 
                   className="text-red-600 origin-center text-center md:text-sm text-[10px]  ">! somthing wronged </motion.p> : ""}
               </div>
               <div className=" flex gap-3 justify-end md:mt-10">
-                <button onClick={() => DeleteJob(selectedId)} className=" bg-red-400 md:px-4 px-2  text-[12px] md:py-3 md:text-sm rounded-2xl text-white cursor-pointer hover:bg-red-500 duration-200 ">Delete</button>
+                <button onClick={() => DeleteJob(selectedId)} className=" bg-red-400 md:px-4 px-2  text-[12px] md:py-3 md:text-sm rounded-2xl text-white cursor-pointer hover:bg-red-500 duration-200 "> {loader? <div className="flex w-full h-full justify-center items-center" role="status">
+                <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 dark:fill-white  fill-purple-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+                  <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
+                </svg>
+                <span class="sr-only">Loading...</span>
+              </div>:<h2>Delete</h2>}</button>
 
                 <button onClick={() => setwarn(false)} className=" bg-orange-400 md:not-only-of-type:px-4 md:py-3 text-[12px] md:text-sm py-2 px-2 rounded-2xl text-white cursor-pointer hover:bg-orange-500 duration-200 ">Cancel</button>
 
