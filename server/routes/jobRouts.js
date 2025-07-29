@@ -3,7 +3,6 @@ import { getAppliedJobs, Applyjob, jobcreate, UpdateJob, Jobs } from "../control
 import { authenticateToken } from "../middleware/authMiddleware.js";
 import { employer } from "../controllers/ProfileController.js";
 import { JobMiddleware } from "../middleware/jobMiddleware.js";
-import { upload } from "../middleware/multersetup.js";
 import { uploadImage, uploadMessage } from "../upload.js";
 
 const route = Router();
