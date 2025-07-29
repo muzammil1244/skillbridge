@@ -479,7 +479,7 @@ console.log("updat fun osreked")
               onMouseMove={handleMouseMove2}
               onMouseLeave={handleMouseLeave2}
               className="h-full w-full rounded object-cover"
-              src={getprofile.profileImage}
+              src={`https://skillbridge-x62a.onrender.com/uploads/${getprofile.profileImage}`}
               alt="profile image"
             />
 
@@ -907,7 +907,7 @@ console.log("updat fun osreked")
               <h1 className="text-2xl  overflow-hidden col-span-3 md:text-lg text-[15px]  font-bold text-orange-500 mb-2 md:mb-3 flex items-center gap-2">
                 {element.title}
               </h1>
-              <img className="col-span-1 md:size-15 size-10 object-cover rounded-full" src={element.image} alt={element.image} />
+              <img className="col-span-1 md:size-15 size-10 object-cover rounded-full" src={`https://skillbridge-x62a.onrender.com/uploads/${element.image}`} alt={element.image} />
             </div>
             <p
               className={`dark:text-secondary-text-color text-[12px] md:text-sm text-gray-700 md:mb-4 mb-2 cursor-pointer transition-all duration-300 ${showFullDesc ? " break-words" : "truncate"
@@ -1013,7 +1013,7 @@ console.log("updat fun osreked")
                   </div>
                   <img
                     className="md:w-20 md:h-20 w-10 h-10 object-cover rounded-full shadow-md border"
-                    src={selectedJob.image}
+                    src={`https://skillbridge-x62a.onrender.com/uploads/${selectedJob.image}`}
                     alt="Company Logo"
                   />
                 </div>
@@ -1184,7 +1184,7 @@ console.log("updat fun osreked")
                   <div className="flex items-center justify-between mb-2">
                     <p className="font-semibold text-gray-800 dark:text-text-color">{element.name}</p>
                     <img
-                      src={element.profileImage}
+                      src={`https://skillbridge-x62a.onrender.com/uploads/${element.profileImage}`}
                       alt="profile"
                       className="w-8 h-8 rounded-full object-cover"
                     />

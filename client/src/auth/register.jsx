@@ -51,7 +51,6 @@ const [showPassword, setShowPassword] = useState(false);
       }
     } else {
       alert("Registration successful!");
-      console.log(data);
       navigate("/login")
     }
   } catch (err) {

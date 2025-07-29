@@ -8,7 +8,7 @@ export async function register(req, res) {
     const { name, email, password , roll } = req.body;
     const hashedPassword = await hash(password, 10);
 
-    const profileImage = req.file ? req.file.path : null
+    const profileImage = req.file ? req.file.filename :"1753378150931.png" ;
 
     const user = new User({ name, email, password: hashedPassword, roll,profileImage});
     await user.save();
