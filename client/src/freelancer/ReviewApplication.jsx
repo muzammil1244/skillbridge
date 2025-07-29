@@ -63,7 +63,7 @@ const themetrue = location.state?.themtrue
     <Profile02Icon className="md:size-[20px] size-[16px]" />
     Resume:
     <a
-      href={`https://skillbridge-x62a.onrender.com/uploads/${job.application.resume}`}
+      href={job.application.resume}
       target="_blank"
       rel="noopener noreferrer"
       className="underline md:text-sm text-[12px]"

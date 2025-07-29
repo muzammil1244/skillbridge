@@ -379,7 +379,7 @@ if(icon === "true"){
               onMouseMove={handleMouseMove2}
               onMouseLeave={handleMouseLeave2}
               className="h-full w-full rounded object-cover "
-              src={`https://skillbridge-x62a.onrender.com/uploads/${getprofile.profileImage}`}
+              src={getprofile.profileImage}
               alt="profile image"
             /> :
 
@@ -693,7 +693,7 @@ if(icon === "true"){
                 <h1 className="md:text-2xl overflow-hidden col-span-3  font-bold text-orange-500 mb-3 flex items-center gap-2">
                   {element.title}
                 </h1>
-                <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={`https://skillbridge-x62a.onrender.com/uploads/${element.image}`} alt="" />
+                <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={element.image} alt="" />
               </div>
 
               <p

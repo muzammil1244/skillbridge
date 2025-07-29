@@ -31,7 +31,7 @@ export const jobcreate = async (req, res) => {
       canapply,
       opportunity,
       active: active === "true",
-      image: req.file ? req.file.filename : null,
+      image: req.file ? req.file.path : null,
     });
 
     await jobdata.save();
@@ -63,7 +63,7 @@ export const Applyjob = async (req, res) => {
 
 
   const { coverlater, status, rating } = req.body
-  const resume = req.file ? req.file.filename : null;
+  const resume = req.file ? req.file.path : null;
 
   const alreadyApplied = job.applicants.find(
     (app) => app.freelancer.toString() === req.user.userID
@@ -120,7 +120,7 @@ export const UpdateJob = async (req, res) => {
 
     // ✅ image check (if new image uploaded)
     if (req.file) {
-      updatedFields.image = req.file.filename;
+      updatedFields.image = req.file.path;
     }
 
     const updatedJob = await Job.findOneAndUpdate(

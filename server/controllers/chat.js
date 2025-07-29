@@ -70,7 +70,7 @@ export const Messages = async (req, res) => {
   let file = "";
 
   if (req.file) {
-    file =   req.file ? req.file.filename : null;
+    file =   req.file ? req.file.path : null;
 
   }
 

@@ -55,7 +55,7 @@ export const UpdateProfile = async (req, res) => {
   }
 
   const { name, email, password, roll } = req.body;
-  const profileImage = req.file?.filename;
+  const profileImage = req.file?.path;
 
   const updateData = {};
 

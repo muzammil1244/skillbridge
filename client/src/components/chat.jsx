@@ -144,7 +144,7 @@ export default function ChatApp() {
               onClick={() => fetchMessage(item.conversationId, item)}
               className="flex items-center gap-4 px-3 py-2 rounded-lg cursor-pointer bg-white dark:bg-card-color hover:bg-gray-100 dark:hover:bg-gray-700 transition"
             >
-              <img className="w-12 h-12 rounded-full object-cover" src={`https://skillbridge-x62a.onrender.com/uploads/${item.user.image}`} alt={item.user.name} />
+              <img className="w-12 h-12 rounded-full object-cover" src={item.user.image} alt={item.user.name} />
               <div className="flex flex-col justify-center overflow-hidden">
                 <h1 className="text-base font-semibold text-gray-800 dark:text-white truncate max-w-[160px]">{item.user.name}</h1>
                 <p className="text-sm text-gray-500 dark:text-accent-color truncate max-w-[160px]">{item.user.email}</p>
@@ -202,9 +202,9 @@ export default function ChatApp() {
                   {fileUrl && (
                     <>
                       {fileUrl.endsWith(".jpg") || fileUrl.endsWith(".png") ? (
-                        <img src={`https://skillbridge-x62a.onrender.com/uploads/${fileUrl}`} alt="sent image" className="md:mt-2 md:max-w-xs   rounded-lg" />
+                        <img src={fileUrl} alt="sent image" className="md:mt-2 md:max-w-xs   rounded-lg" />
                       ) : (
-                        <a href={`https://skillbridge-x62a.onrender.com/uploads/${fileUrl}`} target="_blank" rel="noopener noreferrer" className="flex mt-2 items-center gap-1 text-sm underline">
+                        <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="flex mt-2 items-center gap-1 text-sm underline">
                           <File02Icon /> View File
                         </a>
                       )}

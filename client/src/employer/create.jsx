@@ -50,6 +50,10 @@ export function Create() {
 
   const CreateJob = async (e) => {
     e.preventDefault();
+    if (new Date(jobData.deadline) < new Date()) {
+  alert("Deadline must be a future date.");
+  return;
+}
 const token = localStorage.getItem("token")
 sertloader(true)
     try {

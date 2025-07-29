@@ -3,6 +3,7 @@ import { Deletejob, getAppliedJobs, getPostedJobsWithApplicants, Profile, Update
 import { authenticateToken } from "../middleware/authMiddleware.js"
 import { upload } from "../middleware/multersetup.js";
 import { updateApplicantStatus } from "../controllers/updateApplicantStatus.js";
+import { uploadImage } from "../upload.js";
 
 
 
@@ -11,7 +12,7 @@ import { updateApplicantStatus } from "../controllers/updateApplicantStatus.js";
 
 route.delete("/delete/:DeleteId", authenticateToken,Deletejob)
 
-route.patch("/user/profileupdate",authenticateToken,upload.single("profileImage"),UpdateProfile)
+route.patch("/user/profileupdate",authenticateToken,uploadImage.single("profileImage"),UpdateProfile)
 route.get("/user/applyedjobs",authenticateToken,getAppliedJobs)
 route.get("/employer/:jobId",authenticateToken,getPostedJobsWithApplicants)
 route.get("/profile",authenticateToken,Profile)

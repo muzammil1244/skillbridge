@@ -84,6 +84,11 @@ const updateID = job._id
 
   const handleUpdate = async () => {
     setloader(true)
+    if (new Date(jobData.deadline) < new Date()) {
+  alert("Deadline should be a future date.");
+  setloader(false);
+  return;
+}
   const formData = new FormData();
   formData.append("title", jobData.title);
   formData.append("description", jobData.description);
