@@ -38,7 +38,7 @@ export const Applications = () => {
         const token = localStorage.getItem("token")
 
         try {
-            const data = await fetch(`http://localhost:5000/api/employer/${jobId}`, {
+            const data = await fetch(`https://skillbridge-x62a.onrender.com/api/employer/${jobId._id}`, {
                 method: "GET",
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -75,7 +75,7 @@ export const Applications = () => {
     setActiveDropdownIndex(null);
 
     try {
-        const response = await fetch(`http://localhost:5000/api/update-status/${jobId}/${freelancerId}`, {
+        const response = await fetch(`https://skillbridge-x62a.onrender.com/api/update-status/${jobId._id}/${freelancerId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -106,7 +106,7 @@ export const Applications = () => {
                 </div>
                 <div className="flex md:gap-5 gap-2 justify-between items-center">
                     <PermanentJobIcon className=" md:size-[25px] size-[19px]" />
-                    <span className="text-md text-[10px]">Backend Developer</span>
+                    <span className="text-md text-[10px]">{jobId.title}</span>
                 </div>
             </div>
 
@@ -139,7 +139,7 @@ export const Applications = () => {
                     >
                         <div className="flex items-center mb-4 gap-4">
                             <img
-                                src={`http://localhost:5000/uploads/${applicant.profileImage}`}
+                                src={`https://skillbridge-x62a.onrender.com/uploads/${applicant.profileImage}`}
                                 alt={applicant.name}
                                 className="w-16 h-16 rounded-full object-cover border-2 dark:border-secondary-text-color border-purple-400"
                             />
@@ -191,7 +191,7 @@ export const Applications = () => {
 
                         <div className="flex flex-row-reverse justify-around">
                             <a
-                                href={`http://localhost:5000/uploads/${applicant.resume}`}
+                                href={`https://skillbridge-x62a.onrender.com/uploads/${applicant.resume}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className=" dark:shadow shadow-[3px 6px 5px 15px] dark: hover:shadow-white block text-center dark:bg-accent-light bg-purple-600 dark:hover:bg-accent-color hover:bg-purple-700  text-white font-semibold py-2 px-4 rounded-lg">

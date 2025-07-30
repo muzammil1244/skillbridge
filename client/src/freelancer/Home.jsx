@@ -119,7 +119,7 @@ export const Homee = () => {
   const Reviewfun = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://localhost:5000/review/review", {
+      const response = await fetch("https://skillbridge-x62a.onrender.com/review/review", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -179,7 +179,7 @@ export const Homee = () => {
 
 
     try {
-      const res = await fetch("http://localhost:5000/review/add/review", {
+      const res = await fetch("https://skillbridge-x62a.onrender.com/review/add/review", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // ✅ MISSING EARLIER
@@ -227,7 +227,7 @@ export const Homee = () => {
 
         // 👈 Token nikaalo
 
-        const jobdata = await fetch("http://localhost:5000/api/freelancer/jobs", {
+        const jobdata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/jobs", {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -280,7 +280,7 @@ export const Homee = () => {
     }
 
     try {
-      const data = await fetch("http://localhost:5000/api/profile", {
+      const data = await fetch("https://skillbridge-x62a.onrender.com/api/profile", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // ✅ safe and direct
@@ -346,7 +346,7 @@ console.log("updat fun osreked")
     }
 
     try {
-      const update = await fetch("http://localhost:5000/api/user/profileupdate", {
+      const update = await fetch("https://skillbridge-x62a.onrender.com/api/user/profileupdate", {
         method: "PATCH",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -383,7 +383,7 @@ console.log("updat fun osreked")
     }
 
     try {
-      const applicantdata = await fetch("http://localhost:5000/api/freelancer/applied-jobs", {
+      const applicantdata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/applied-jobs", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -479,7 +479,7 @@ console.log("updat fun osreked")
               onMouseMove={handleMouseMove2}
               onMouseLeave={handleMouseLeave2}
               className="h-full w-full rounded object-cover"
-              src={`http://localhost:5000/uploads/${getprofile.profileImage}`}
+              src={`https://skillbridge-x62a.onrender.com/uploads/${getprofile.profileImage}`}
               alt="profile image"
             />
 
@@ -901,7 +901,7 @@ console.log("updat fun osreked")
               <h1 className="text-2xl  overflow-hidden col-span-3 md:text-lg text-[15px]  font-bold text-orange-500 mb-2 md:mb-3 flex items-center gap-2">
                 {element.title}
               </h1>
-              <img className="col-span-1 md:size-15 size-10 object-cover rounded-full" src={`http://localhost:5000/uploads/${element.image}`} alt={element.image} />
+              <img className="col-span-1 md:size-15 size-10 object-cover rounded-full" src={`https://skillbridge-x62a.onrender.com/uploads/${element.image}`} alt={element.image} />
             </div>
             <p
               className={`dark:text-secondary-text-color text-[12px] md:text-sm text-gray-700 md:mb-4 mb-2 cursor-pointer transition-all duration-300 ${showFullDesc ? " break-words" : "truncate"
@@ -1007,7 +1007,7 @@ console.log("updat fun osreked")
                   </div>
                   <img
                     className="md:w-20 md:h-20 w-10 h-10 object-cover rounded-full shadow-md border"
-                    src={`http://localhost:5000/uploads/${selectedJob.image}`}
+                    src={`https://skillbridge-x62a.onrender.com/uploads/${selectedJob.image}`}
                     alt="Company Logo"
                   />
                 </div>
@@ -1178,7 +1178,7 @@ console.log("updat fun osreked")
                   <div className="flex items-center justify-between mb-2">
                     <p className="font-semibold text-gray-800 dark:text-text-color">{element.name}</p>
                     <img
-                      src={`http://localhost:5000/uploads/${element.profileImage}`}
+                      src={`https://skillbridge-x62a.onrender.com/uploads/${element.profileImage}`}
                       alt="profile"
                       className="w-8 h-8 rounded-full object-cover"
                     />

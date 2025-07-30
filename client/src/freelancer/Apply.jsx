@@ -50,7 +50,7 @@ setloader(true)
 
 try{
 
-const data = await fetch(`http://localhost:5000/api/${jobid}/jobapply`,{
+const data = await fetch(`https://skillbridge-x62a.onrender.com/api/${jobid}/jobapply`,{
   method:"POST",
   headers: {
         "Authorization": `Bearer ${token}`,

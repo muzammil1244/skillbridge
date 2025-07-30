@@ -161,7 +161,7 @@ export const Home = () => {
     }
 
     try {
-      const data = await fetch("http://localhost:5000/api/profile", {
+      const data = await fetch("https://skillbridge-x62a.onrender.com/api/profile", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // ✅ safe and direct
@@ -204,7 +204,7 @@ console.log("updat fun osreked")
     }
 
     try {
-      const update = await fetch("http://localhost:5000/api/user/profileupdate", {
+      const update = await fetch("https://skillbridge-x62a.onrender.com/api/user/profileupdate", {
         method: "PATCH",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -251,7 +251,7 @@ console.log("updat fun osreked")
     }
 
     try {
-      const jobsdata = await fetch("http://localhost:5000/api/employer/jobs", {
+      const jobsdata = await fetch("https://skillbridge-x62a.onrender.com/api/employer/jobs", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -290,7 +290,7 @@ console.log("updat fun osreked")
     if (getwarn.trim().toLowerCase() === getprofile.name.trim().toLowerCase()) {
       console.log("yesssssssssssss")
       try {
-        await fetch(`http://localhost:5000/api/delete/${id}`, {
+        await fetch(`https://skillbridge-x62a.onrender.com/api/delete/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -379,7 +379,7 @@ if(icon === "true"){
               onMouseMove={handleMouseMove2}
               onMouseLeave={handleMouseLeave2}
               className="h-full w-full rounded object-cover "
-              src={`http://localhost:5000/uploads/${getprofile.profileImage}`}
+              src={`https://skillbridge-x62a.onrender.com/uploads/${getprofile.profileImage}`}
               alt="profile image"
             /> :
 
@@ -693,7 +693,7 @@ if(icon === "true"){
                 <h1 className="md:text-2xl overflow-hidden col-span-3  font-bold text-orange-500 mb-3 flex items-center gap-2">
                   {element.title}
                 </h1>
-                <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={`http://localhost:5000/uploads/${element.image}`} alt="" />
+                <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={`https://skillbridge-x62a.onrender.com/uploads/${element.image}`} alt="" />
               </div>
 
               <p
@@ -770,7 +770,7 @@ if(icon === "true"){
                     Delete
                   </button>
                   <button onClick={() => navigate("/employer/job/application", {
-                    state: { themtrue, jobid: element._id, senderId: getprofile._id }
+                    state: { themtrue, jobid: element, senderId: getprofile._id }
                   })} className="bg-orange-500 cursor-pointer  hover:bg-orange-600 text-white font-semibold md:px-4 px-[7px] py-[3.5px]   md:py-1 rounded-full text-[10px]  md:text-sm">
                     <File01Icon className="size-[10px] md:size-[25px]" />
                     Applications
