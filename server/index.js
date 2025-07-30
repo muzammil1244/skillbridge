@@ -35,13 +35,14 @@ const app = express();
 
 const server = http.createServer(app)
 app.use(cors({
-  origin: "http:skillbridge-inky.vercel.app", // 👈 without /login
+  origin: "https://skillbridge-inky.vercel.app", // ✅ correct protocol with slashes
   credentials: true,
 }));
+
 let users = []
 const io = new Server(server, {
   cors: {
-    origin: "http:skillbridge-inky.vercel.app", // ✅ No space, no trailing slash
+    origin: "https://skillbridge-inky.vercel.app", // ✅ No space, no trailing slash
     methods: ["GET", "POST"],
   },
 });
