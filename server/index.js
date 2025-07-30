@@ -11,6 +11,19 @@ import reviewroutes from "./routes/review.js"
 import Chat from "./routes/Chat.js"
 import http from "http";
 import {Server} from "socket.io"
+
+import fs from "fs";
+import path from "path";
+
+// uploads folder path
+const uploadPath = path.join(process.cwd(), "uploads");
+
+// create uploads folder if it doesn't exist
+if (!fs.existsSync(uploadPath)) {
+  fs.mkdirSync(uploadPath);
+  console.log("✅ uploads folder created");
+}
+
 // ✅ Load environment variables
 config();
 
