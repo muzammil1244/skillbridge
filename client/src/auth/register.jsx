@@ -26,6 +26,7 @@ const [showPassword, setShowPassword] = useState(false);
   };
   const Submitfun =async (e) => {
      e.preventDefault(); //
+     console.log("yesss")
   sertloader(true)
      const realFormData = new FormData();
   realFormData.append("name", formData.name);
@@ -36,6 +37,8 @@ const [showPassword, setShowPassword] = useState(false);
 
 
    try {
+         console.log("yesss")
+
     const response = await fetch("https://skillbridge-x62a.onrender.com/api/auth/register", {
       method: "POST",
       body: realFormData, // ✅ Don't stringify

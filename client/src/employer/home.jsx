@@ -215,11 +215,11 @@ console.log("updat fun osreked")
 
       // 🚀 Page refresh ho jayega
 
-      if(data.ok){
+      if(update.ok){
         settloader(false)
             window.location.reload();
       }
-      if(data.ok){
+      if(update.ok){
         settloader(false)
             window.location.reload();
       }

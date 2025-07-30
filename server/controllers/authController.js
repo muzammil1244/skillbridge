@@ -1,14 +1,17 @@
 import  User  from "../models/User.js";
 import { compare, hash } from "bcrypt";
 import jwt from "jsonwebtoken";
-import Job from "../models/Job.js";
 
 export async function register(req, res) {
+      const { name, email, password , roll } = req.body;
+    const profileImage = req.file ? req.file.filename :"1753378150931.png" ;
+console.log(name, email, password , roll,profileImage
+  
+)
   try {
     const { name, email, password , roll } = req.body;
     const hashedPassword = await hash(password, 10);
 
-    const profileImage = req.file ? req.file.filename :"1753378150931.png" ;
 
     const user = new User({ name, email, password: hashedPassword, roll,profileImage});
     await user.save();
