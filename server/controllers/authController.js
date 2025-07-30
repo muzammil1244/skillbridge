@@ -4,9 +4,9 @@ import jwt from "jsonwebtoken";
 
 export async function register(req, res) {
       const { name, email, password , roll } = req.body;
-    const profileImage = req.file ? req.file.filename :"1753378150931.png" ;
+    const profileImage = req.file ? req.file.filename :null ;
 console.log(name, email, password , roll,profileImage
-  
+
 )
   try {
     const { name, email, password , roll } = req.body;
