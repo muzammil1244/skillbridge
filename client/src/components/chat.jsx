@@ -21,7 +21,7 @@ export default function ChatApp() {
   const conversationId = location.state?.conversationId;
   const messageref = useRef(null);
   useEffect(() => {
-    const socketInstance = io("https://skillbridge-x62a.onrender.com");
+    const socketInstance = io("http://localhost:5000");
     setsocket(socketInstance);
     if (senderId) socketInstance.emit("addUser", senderId);
 
@@ -55,7 +55,7 @@ export default function ChatApp() {
   const fetchConversation = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`https://skillbridge-x62a.onrender.com/api/conversation/list/${senderId}`, {
+      const res = await fetch(`http://localhost:5000/api/conversation/list/${senderId}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -70,7 +70,7 @@ export default function ChatApp() {
   const fetchMessage = async (conversationId, user) => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`https://skillbridge-x62a.onrender.com/api/message/${conversationId}`, {
+      const res = await fetch(`http://localhost:5000/api/message/${conversationId}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -97,7 +97,7 @@ export default function ChatApp() {
   if (file) formData.append("file", file);
 
   try {
-    const response = await fetch('https://skillbridge-x62a.onrender.com/api/message', {
+    const response = await fetch('http://localhost:5000/api/message', {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
@@ -144,7 +144,7 @@ export default function ChatApp() {
               onClick={() => fetchMessage(item.conversationId, item)}
               className="flex items-center gap-4 px-3 py-2 rounded-lg cursor-pointer bg-white dark:bg-card-color hover:bg-gray-100 dark:hover:bg-gray-700 transition"
             >
-              <img className="w-12 h-12 rounded-full object-cover" src={`https://skillbridge-x62a.onrender.com/uploads/${item.user.image}`} alt={item.user.name} />
+              <img className="w-12 h-12 rounded-full object-cover" src={`http://localhost:5000/uploads/${item.user.image}`} alt={item.user.name} />
               <div className="flex flex-col justify-center overflow-hidden">
                 <h1 className="text-base font-semibold text-gray-800 dark:text-white truncate max-w-[160px]">{item.user.name}</h1>
                 <p className="text-sm text-gray-500 dark:text-accent-color truncate max-w-[160px]">{item.user.email}</p>
@@ -176,7 +176,7 @@ export default function ChatApp() {
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
               className="size-10 rounded-full"
-              src={`https://skillbridge-x62a.onrender.com/uploads/${receiver.user?.image || receiver.default?.profileImage}`}
+              src={`http://localhost:5000/uploads/${receiver.user?.image || receiver.default?.profileImage}`}
               alt=""
             />
             <h1 className="font-bold text-gray-900 dark:text-white text-lg">
@@ -202,9 +202,9 @@ export default function ChatApp() {
                   {fileUrl && (
                     <>
                       {fileUrl.endsWith(".jpg") || fileUrl.endsWith(".png") ? (
-                        <img src={`https://skillbridge-x62a.onrender.com/uploads/${fileUrl}`} alt="sent image" className="md:mt-2 md:max-w-xs   rounded-lg" />
+                        <img src={`http://localhost:5000/uploads/${fileUrl}`} alt="sent image" className="md:mt-2 md:max-w-xs   rounded-lg" />
                       ) : (
-                        <a href={`https://skillbridge-x62a.onrender.com/uploads/${fileUrl}`} target="_blank" rel="noopener noreferrer" className="flex mt-2 items-center gap-1 text-sm underline">
+                        <a href={`http://localhost:5000/uploads/${fileUrl}`} target="_blank" rel="noopener noreferrer" className="flex mt-2 items-center gap-1 text-sm underline">
                           <File02Icon /> View File
                         </a>
                       )}

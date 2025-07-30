@@ -119,7 +119,7 @@ export const Homee = () => {
   const Reviewfun = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("https://skillbridge-x62a.onrender.com/review/review", {
+      const response = await fetch("http://localhost:5000/review/review", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -179,7 +179,7 @@ export const Homee = () => {
 
 
     try {
-      const res = await fetch("https://skillbridge-x62a.onrender.com/review/add/review", {
+      const res = await fetch("http://localhost:5000/review/add/review", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // ✅ MISSING EARLIER
@@ -227,7 +227,7 @@ export const Homee = () => {
 
         // 👈 Token nikaalo
 
-        const jobdata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/jobs", {
+        const jobdata = await fetch("http://localhost:5000/api/freelancer/jobs", {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -280,7 +280,7 @@ export const Homee = () => {
     }
 
     try {
-      const data = await fetch("https://skillbridge-x62a.onrender.com/api/profile", {
+      const data = await fetch("http://localhost:5000/api/profile", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // ✅ safe and direct
@@ -346,7 +346,7 @@ console.log("updat fun osreked")
     }
 
     try {
-      const update = await fetch("https://skillbridge-x62a.onrender.com/api/user/profileupdate", {
+      const update = await fetch("http://localhost:5000/api/user/profileupdate", {
         method: "PATCH",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -383,7 +383,7 @@ console.log("updat fun osreked")
     }
 
     try {
-      const applicantdata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/applied-jobs", {
+      const applicantdata = await fetch("http://localhost:5000/api/freelancer/applied-jobs", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -479,7 +479,7 @@ console.log("updat fun osreked")
               onMouseMove={handleMouseMove2}
               onMouseLeave={handleMouseLeave2}
               className="h-full w-full rounded object-cover"
-              src={`https://skillbridge-x62a.onrender.com/uploads/${getprofile.profileImage}`}
+              src={`http://localhost:5000/uploads/${getprofile.profileImage}`}
               alt="profile image"
             />
 
@@ -548,14 +548,8 @@ console.log("updat fun osreked")
 
               <div className="shadow-inner shadow-purple-800  dark:shadow-shadow-color gap-2 px-3 items-center justify-around py-[3px] rounded-[10px] dark:bg-bg-dark bg-purple-500 dark:border-border-color border-2 border-purple-200 flex">
                 <NewJobIcon color="white" size={20} />
-                <h1 className="text-gray-300 dark:text-secondary-text-color font-serif text-[12px]">Applications {getapplicationdata && getapplicationdata.length ? getapplicationdata.length : <div className=" flex size-3 justify-center items-center" role="status">
-                  <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 dark:fill-white  fill-purple-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
-                    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
-                  </svg>
-                  <span class="sr-only">Loading...</span>
-                </div>
-                }</h1>
+                <h1 className="text-gray-300 dark:text-secondary-text-color font-serif text-[12px]">Applications {getapplicationdata && getapplicationdata.length ? getapplicationdata.length : 
+0                }</h1>
               </div>
             </div>
 
@@ -642,7 +636,7 @@ console.log("updat fun osreked")
                     <button onClick={() => {
                       editefalse(!editetrue)
 
-                    }} className=" bg-red-500 cursor-pointer opacity-80  w-full rounded-xl text-gray-300 py-2">Cancle</button>
+                    }} className=" bg-red-500 cursor-pointer opacity-80  w-full rounded-xl text-gray-300 py-2">Cancel</button>
                     <button type="submit" className="bg-orange-500 cursor-pointer opacity-80  w-full rounded-xl text-gray-300 py-2">
 
                       Save</button>
@@ -907,7 +901,7 @@ console.log("updat fun osreked")
               <h1 className="text-2xl  overflow-hidden col-span-3 md:text-lg text-[15px]  font-bold text-orange-500 mb-2 md:mb-3 flex items-center gap-2">
                 {element.title}
               </h1>
-              <img className="col-span-1 md:size-15 size-10 object-cover rounded-full" src={`https://skillbridge-x62a.onrender.com/uploads/${element.image}`} alt={element.image} />
+              <img className="col-span-1 md:size-15 size-10 object-cover rounded-full" src={`http://localhost:5000/uploads/${element.image}`} alt={element.image} />
             </div>
             <p
               className={`dark:text-secondary-text-color text-[12px] md:text-sm text-gray-700 md:mb-4 mb-2 cursor-pointer transition-all duration-300 ${showFullDesc ? " break-words" : "truncate"
@@ -1013,7 +1007,7 @@ console.log("updat fun osreked")
                   </div>
                   <img
                     className="md:w-20 md:h-20 w-10 h-10 object-cover rounded-full shadow-md border"
-                    src={`https://skillbridge-x62a.onrender.com/uploads/${selectedJob.image}`}
+                    src={`http://localhost:5000/uploads/${selectedJob.image}`}
                     alt="Company Logo"
                   />
                 </div>
@@ -1184,7 +1178,7 @@ console.log("updat fun osreked")
                   <div className="flex items-center justify-between mb-2">
                     <p className="font-semibold text-gray-800 dark:text-text-color">{element.name}</p>
                     <img
-                      src={`https://skillbridge-x62a.onrender.com/uploads/${element.profileImage}`}
+                      src={`http://localhost:5000/uploads/${element.profileImage}`}
                       alt="profile"
                       className="w-8 h-8 rounded-full object-cover"
                     />
@@ -1204,13 +1198,7 @@ console.log("updat fun osreked")
                 </div>
               );
             }) : (
-              <div className="flex w-full h-full justify-center items-center" role="status">
-                <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 dark:fill-white  fill-purple-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
-                  <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
-                </svg>
-                <span class="sr-only">Loading...</span>
-              </div>
+             null
             )}
           </div>
 

@@ -11,7 +11,7 @@ const getapplicationdata = async() => {
 
 
   try{
-    const adata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/applied-jobs",{
+    const adata = await fetch("http://localhost:5000/api/freelancer/applied-jobs",{
       method:"GET",
       headers:{
          "Authorization" : `Bearer ${token}`

@@ -38,7 +38,7 @@ export const Applications = () => {
         const token = localStorage.getItem("token")
 
         try {
-            const data = await fetch(`https://skillbridge-x62a.onrender.com/api/employer/${jobId}`, {
+            const data = await fetch(`http://localhost:5000/api/employer/${jobId}`, {
                 method: "GET",
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -75,7 +75,7 @@ export const Applications = () => {
     setActiveDropdownIndex(null);
 
     try {
-        const response = await fetch(`https://skillbridge-x62a.onrender.com/api/update-status/${jobId}/${freelancerId}`, {
+        const response = await fetch(`http://localhost:5000/api/update-status/${jobId}/${freelancerId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -139,7 +139,7 @@ export const Applications = () => {
                     >
                         <div className="flex items-center mb-4 gap-4">
                             <img
-                                src={`https://skillbridge-x62a.onrender.com/uploads/${applicant.profileImage}`}
+                                src={`http://localhost:5000/uploads/${applicant.profileImage}`}
                                 alt={applicant.name}
                                 className="w-16 h-16 rounded-full object-cover border-2 dark:border-secondary-text-color border-purple-400"
                             />

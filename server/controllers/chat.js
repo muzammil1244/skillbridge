@@ -73,7 +73,7 @@ export const Messages = async (req, res) => {
     file =   req.file ? req.file.filename : null;
 
   }
-
+console.log( "file data ",file)
   try {
     let convid = conversationId;
 

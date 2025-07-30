@@ -161,7 +161,7 @@ export const Home = () => {
     }
 
     try {
-      const data = await fetch("https://skillbridge-x62a.onrender.com/api/profile", {
+      const data = await fetch("http://localhost:5000/api/profile", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // ✅ safe and direct
@@ -204,7 +204,7 @@ console.log("updat fun osreked")
     }
 
     try {
-      const update = await fetch("https://skillbridge-x62a.onrender.com/api/user/profileupdate", {
+      const update = await fetch("http://localhost:5000/api/user/profileupdate", {
         method: "PATCH",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -251,7 +251,7 @@ console.log("updat fun osreked")
     }
 
     try {
-      const jobsdata = await fetch("https://skillbridge-x62a.onrender.com/api/employer/jobs", {
+      const jobsdata = await fetch("http://localhost:5000/api/employer/jobs", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
@@ -290,7 +290,7 @@ console.log("updat fun osreked")
     if (getwarn.trim().toLowerCase() === getprofile.name.trim().toLowerCase()) {
       console.log("yesssssssssssss")
       try {
-        await fetch(`https://skillbridge-x62a.onrender.com/api/delete/${id}`, {
+        await fetch(`http://localhost:5000/api/delete/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -379,7 +379,7 @@ if(icon === "true"){
               onMouseMove={handleMouseMove2}
               onMouseLeave={handleMouseLeave2}
               className="h-full w-full rounded object-cover "
-              src={`https://skillbridge-x62a.onrender.com/uploads/${getprofile.profileImage}`}
+              src={`http://localhost:5000/uploads/${getprofile.profileImage}`}
               alt="profile image"
             /> :
 
@@ -486,7 +486,7 @@ if(icon === "true"){
                   <div className="flex gap-4 justify-center items-center 
  ">
                     <LockPasswordIcon className="text-gray-300" />
-                    <input onChange={handleChange} placeholder="User Email" className="border-gray-300 dark:border-border-color
+                    <input onChange={handleChange} placeholder="Password" className="border-gray-300 dark:border-border-color
   w-full shadow-inner shadow-2xl focus:-2 outline-none dark:focus:border-border-color focus:border-purple-500  text-center checked:bg-purple-500 dark:shadow-shadow-color shadow-purple-700
   border-2 py-[2px] rounded-xl dark:text-secondary-text-color text-gray-300" name="password" type="password" />
                   </div>
@@ -504,7 +504,7 @@ if(icon === "true"){
                     <button onClick={() => {
                       editefalse(!editetrue)
 
-                    }} className=" bg-red-500 cursor-pointer opacity-80  w-full rounded-xl text-gray-300 py-2">Cancle</button>
+                    }} className=" bg-red-500 cursor-pointer opacity-80  w-full rounded-xl text-gray-300 py-2">Cancel</button>
                     <button type="submit" className="bg-orange-500 cursor-pointer opacity-80  w-full rounded-xl text-gray-300 py-2"> {loader? <div className="flex w-full h-full justify-center items-center" role="status">
                 <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 dark:fill-white  fill-purple-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
@@ -693,7 +693,7 @@ if(icon === "true"){
                 <h1 className="md:text-2xl overflow-hidden col-span-3  font-bold text-orange-500 mb-3 flex items-center gap-2">
                   {element.title}
                 </h1>
-                <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={`https://skillbridge-x62a.onrender.com/uploads/${element.image}`} alt="" />
+                <img className="col-span-1 md:size-15 size-7 object-cover rounded-full" src={`http://localhost:5000/uploads/${element.image}`} alt="" />
               </div>
 
               <p
@@ -780,7 +780,7 @@ if(icon === "true"){
             </div>
           }) :<div className="w-full dark:bg-card-color dark:border-border-color hover:scale-101 duration-500 flex justify-center h-fill bg-purple-200 rounded-2xl  shadow-purple-300 shadow-lg mt-10 self-center ">
 
-<h1 className=" md:text-sm dark:text-secondary-text-color  py-10 md:px-10 text-sm text-center    ">You haven’t created any jobs yet.
+<h1 className=" md:text-sm dark:text-secondary-text-color  py-10 px-5 md:px-10 text-sm text-center    ">You haven’t created any jobs yet.
 If you wish to post a job, you can easily create one using the “Create Job” button.</h1>
 
           </div>
