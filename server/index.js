@@ -35,13 +35,13 @@ const app = express();
 
 const server = http.createServer(app)
 app.use(cors({
-  origin: "http://localhost:3000", // 👈 without /login
+  origin: "http:skillbridge-inky.vercel.app", // 👈 without /login
   credentials: true,
 }));
 let users = []
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // ✅ No space, no trailing slash
+    origin: "http:skillbridge-inky.vercel.app", // ✅ No space, no trailing slash
     methods: ["GET", "POST"],
   },
 });
