@@ -82,14 +82,11 @@ export const Home = () => {
   const toggleTheme = (mode) => {
     const isDark = mode === "moon";
 
-    // 1. Update state
     setthem(isDark);
 
-    // 2. Update localStorage
     localStorage.setItem("myValue", isDark.toString());
 
-    // 3. Optional: reload page to reflect theme in other components/pages
-    window.location.reload(); // Only if you're not using context
+    window.location.reload(); 
   };
 
   useEffect((
@@ -118,7 +115,6 @@ export const Home = () => {
 
 
 
-  // handlachnag 
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -134,7 +130,6 @@ export const Home = () => {
   };
 
 
-  // useEffect for function
   useEffect(() => {
     if (getprofile && Object.keys(getprofile).length > 0) {
       setFormData({
@@ -152,7 +147,6 @@ export const Home = () => {
   }, [])
 
 
-  // profile update
   const profile = async () => {
     const token = localStorage.getItem("token"); // ✅ yahin se lo
 
@@ -164,7 +158,7 @@ export const Home = () => {
       const data = await fetch("https://skillbridge-x62a.onrender.com/api/profile", {
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${token}`, // ✅ safe and direct
+          "Authorization": `Bearer ${token}`, 
         },
       });
 
@@ -176,7 +170,6 @@ export const Home = () => {
     }
   };
 
-  // update profile
   const updateprofile = async (e) => {
     e.preventDefault()
 console.log("updat fun osreked")
@@ -207,13 +200,12 @@ console.log("updat fun osreked")
       const update = await fetch("https://skillbridge-x62a.onrender.com/api/user/profileupdate", {
         method: "PATCH",
         headers: {
-          "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
+          "Authorization": `Bearer ${token}`,
         },
-        body: realFormData, // ✅ Don't stringify
+        body: realFormData, 
 
       })
 
-      // 🚀 Page refresh ho jayega
 
       if(update.ok){
         settloader(false)
@@ -240,10 +232,9 @@ console.log("updat fun osreked")
   }
 
 
-  // jobs data 
 
   const jobsData = async () => {
-    const token = localStorage.getItem("token"); // ✅ yahin se lo
+    const token = localStorage.getItem("token"); 
 
     if (!token) {
       console.log("No token found");
@@ -254,7 +245,7 @@ console.log("updat fun osreked")
       const jobsdata = await fetch("https://skillbridge-x62a.onrender.com/api/employer/jobs", {
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
+          "Authorization": `Bearer ${token}`, 
         },
       })
 
@@ -280,7 +271,6 @@ console.log("updat fun osreked")
 
 
 
-  // delete job 
 
   const DeleteJob = async (id) => {
     const token = localStorage.getItem("token");
@@ -297,10 +287,10 @@ console.log("updat fun osreked")
           },
         });
 settloader(false)
-        //set Optional: Refresh job list or show success
-        setwarn(false); // close modal
+       
+        setwarn(false);
         ssetwarn("");
-        window.location.reload()   // clear input
+        window.location.reload()  
       } catch (err) {
         console.log("Delete failed:", err);
       }
@@ -309,14 +299,14 @@ settloader(false)
       setalert(true);
       setTimeout(() => {
         setalert(false)
-      }, 1000);// Name mismatch
+      }, 1000);
     }
   };
 
 
   const handlewarn = (id) => {
     setwarn(true)
-    setSelectedId(id);  // 👈 save job id for deletion
+    setSelectedId(id);  
   }
   let ref2 = useRef()
 
@@ -327,7 +317,6 @@ settloader(false)
   const rotateY2 = useTransform(x2, [0, 1], [-15, 15]);
 useEffect(()=>{
  let icon = localStorage.getItem("myValue")
-  // Only if you're not using context
 
 if(icon === "true"){
   setSelected("moon")
@@ -342,9 +331,9 @@ if(icon === "true"){
   const handleMouseMove2 = (e) => {
 
 
-    const rect = ref2.current.getBoundingClientRect(); // card ka size/location
-    const posX = (e.clientX - rect.left) / rect.width; // mouse x position card ke andar
-    const posY = (e.clientY - rect.top) / rect.height; // mouse y position card ke andar
+    const rect = ref2.current.getBoundingClientRect(); 
+    const posX = (e.clientX - rect.left) / rect.width; 
+    const posY = (e.clientY - rect.top) / rect.height;
     x2.set(posX);
     y2.set(posY);
   };
@@ -702,7 +691,6 @@ if(icon === "true"){
                 onClick={handleToggleDescription}
                 title="Click to toggle full description"
                 style={{
-                  // ✅ Prevent horizontal overflow
                 }}
               >
                 {element.description}

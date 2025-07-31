@@ -1,7 +1,7 @@
 import express, { json } from "express";
 import { connectDB } from "./config/db.js";
 import { config } from "dotenv";
-import mongoose from "mongoose"; // ✅ Missing import added
+import mongoose from "mongoose"; 
 import authRoutes from "./routes/authRoutes.js";
 import cors from "cors";
 import protectedRoutes from "./routes/protectedRoutes.js";
@@ -15,34 +15,29 @@ import {Server} from "socket.io"
 import fs from "fs";
 import path from "path";
 
-// uploads folder path
 const uploadPath = path.join(process.cwd(), "uploads");
 
-// create uploads folder if it doesn't exist
 if (!fs.existsSync(uploadPath)) {
   fs.mkdirSync(uploadPath);
   console.log("✅ uploads folder created");
 }
 
-// ✅ Load environment variables
 config();
 
-// ✅ Create express app
 const app = express();
 
 
-// io connection 
 
 const server = http.createServer(app)
 app.use(cors({
-  origin: "https://skillbridge-inky.vercel.app", // ✅ correct protocol with slashes
+  origin: "https://skillbridge-inky.vercel.app", 
   credentials: true,
 }));
 
 let users = []
 const io = new Server(server, {
   cors: {
-    origin: "https://skillbridge-inky.vercel.app", // ✅ No space, no trailing slash
+    origin: "https://skillbridge-inky.vercel.app", 
     methods: ["GET", "POST"],
   },
 });
@@ -77,7 +72,6 @@ socket.on("sendMessage", ({ conversationId, senderId, message, reciverId ,file }
   console.log("receiver found:", iseixstreciver);
   const issenderexist = users.find(user => user.userId === senderId);
 
-  // Emit message to receiver if exists
   if (iseixstreciver) {
     console.log("receiver socketId", iseixstreciver.socketId);
     io.to(iseixstreciver.socketId).emit("getMessage", {
@@ -90,7 +84,6 @@ socket.on("sendMessage", ({ conversationId, senderId, message, reciverId ,file }
     console.log("data sent to receiver by io");
   }
 
-  // Optionally, emit message to sender as well (if needed)
   if (issenderexist) {
     io.to(issenderexist.socketId).emit("getMessage", {
       conversationId,
@@ -114,10 +107,8 @@ socket.on("disconnect",()=>{
 })
 
 
-// ✅ Connect MongoDB
 connectDB();
 
-// ✅ Middlewares
 app.use("/uploads", express.static("uploads"));
 app.use(cors(
 

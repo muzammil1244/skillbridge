@@ -29,7 +29,7 @@ function AuthRedirect() {
 
     try {
       const decoded = jwtDecode(token);
-      const role = decoded.roll; // ✅ make sure it's 'role', not 'roll'
+      const role = decoded.roll; 
 console.log("app " , role)
       if (role === "freelancer" ) {
         navigate("/freelancer/home");
@@ -44,7 +44,7 @@ console.log("app " , role)
     }
   }, [navigate]);
 
-  return null; // ❌ console.log mat karo, just return null
+  return null;
 }
 
 function App() {

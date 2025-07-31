@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const ConversationSchema = new mongoose.Schema({
   members: {
-    type: Array, // 👈 naam string me store hoga
+    type: Array, 
   },
  
 });

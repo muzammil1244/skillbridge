@@ -18,7 +18,7 @@ export function Create() {
     canapply: "",
     opportunity: "",
     image: null,
-    active: true, // ✅ New field for Active Hiring
+    active: true, 
   });
 
   const [skillInput, setSkillInput] = useState("");
@@ -66,7 +66,7 @@ sertloader(true)
       formData.append("salary", jobData.salary);
       formData.append("canapply", jobData.canapply);
       formData.append("opportunity", jobData.opportunity);
-      formData.append("active", jobData.active); // ✅ Send checkbox value
+      formData.append("active", jobData.active); 
       formData.append("skill", JSON.stringify(jobData.skill));
       if (jobData.image) {
         formData.append("image", jobData.image);
@@ -119,7 +119,6 @@ sertloader(true)
           Create Job
         </h2>
 
-        {/* Title */}
         <input
           type="text"
           name="title"
@@ -130,7 +129,6 @@ sertloader(true)
           required
         />
 
-        {/* Description */}
         <textarea
           name="description"
           placeholder="Job Description"
@@ -139,7 +137,6 @@ sertloader(true)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Skills */}
         <div className="mb-4">
           <label className="block font-semibold mb-1 dark:text-secondary-text-color">Skills</label>
           <div className="flex gap-2">
@@ -177,7 +174,6 @@ sertloader(true)
           </div>
         </div>
 
-        {/* Budget */}
         <input
           type="number"
           name="budget"
@@ -187,7 +183,6 @@ sertloader(true)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Deadline */}
         <input
           type="date"
           name="deadline"
@@ -197,7 +192,6 @@ sertloader(true)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Job Type */}
         <select
           name="jobtype"
           value={jobData.jobtype}
@@ -212,7 +206,6 @@ sertloader(true)
           </option>
         </select>
 
-        {/* Salary */}
         <input
           type="number"
           name="salary"
@@ -222,7 +215,6 @@ sertloader(true)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Who can apply */}
         <input
           type="text"
           name="canapply"
@@ -232,7 +224,6 @@ sertloader(true)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Opportunity */}
         <input
           type="number"
           name="opportunity"
@@ -242,7 +233,6 @@ sertloader(true)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Image Upload */}
         <div className="mb-4">
           <label className="block font-semibold mb-1 dark:text-secondary-text-color">Company Image</label>
           <input
@@ -254,7 +244,6 @@ sertloader(true)
           />
         </div>
 
-        {/* Active Hiring Checkbox */}
         <div className="mb-6 flex items-center gap-2">
           <input
             type="checkbox"
@@ -268,7 +257,6 @@ sertloader(true)
           </label>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           className="w-full bg-purple-500 dark:bg-accent-color dark:hover:bg-accent-light duration-200 text-white py-2 rounded hover:bg-purple-700"

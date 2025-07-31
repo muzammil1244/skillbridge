@@ -25,13 +25,11 @@ export const Applications = () => {
   
     const navigate = useNavigate()
 
-    // console.log("themmm", location.state)
 
     useEffect(() => {
         applicationdata()
     }, [])
 
-    // application data 
     const jobId = location?.state?.jobid
     const senderId = location?.state?.senderId
     const applicationdata = async () => {
@@ -47,12 +45,11 @@ export const Applications = () => {
             })
 
             const json = await data.json();
-            // console.log(json); // Add this to check structure
 
-            setApplicants(json.applicants); // ✅ Use correct key
+            setApplicants(json.applicants); 
         } catch (err) {
 
-            // console.log(err)
+            console.log(err)
         }
 
 
@@ -69,7 +66,6 @@ export const Applications = () => {
     const jobId = location.state?.jobid;
     const token = localStorage.getItem("token");
 
-    // Optimistic update (UI pe turant dikhao)
     updated[index].status = newStatus;
     setApplicants(updated);
     setActiveDropdownIndex(null);

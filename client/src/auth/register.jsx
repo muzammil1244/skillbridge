@@ -19,7 +19,7 @@ const [showPassword, setShowPassword] = useState(false);
     const { name, value, type, files } = e.target;
 
     if (type === "file") {
-  setFormData({ ...formData, [name]: files[0] }); // ✅ File object, not URL
+  setFormData({ ...formData, [name]: files[0] }); 
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -33,8 +33,7 @@ const [showPassword, setShowPassword] = useState(false);
   realFormData.append("email", formData.email);
   realFormData.append("password", formData.password);
   realFormData.append("roll", formData.reason);
-  realFormData.append("profileImage", formData.profileImage); // this must be the File object
-
+  realFormData.append("profileImage", formData.profileImage); 
 
    try {
          console.log("yesss")

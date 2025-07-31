@@ -17,8 +17,8 @@ const [jobData, setJobData] = useState({
   salary: "",
   canapply: "",
   opportunity: "",
-  active: false,         // ✅ Initialize as false
-  imageFile: null        // ✅ Rename properly for file
+  active: false,       
+  imageFile: null        
 });
 
 const [loader ,setloader]= useState(false)
@@ -73,7 +73,7 @@ const updateID = job._id
       canapply: job.canapply || "",
       opportunity: job.opportunity || "",
       active: job.active || false,
-      imageFile: null, // File upload blank hi rahega
+      imageFile: null, 
     });
   }
 }, [job]);
@@ -101,7 +101,7 @@ const updateID = job._id
   formData.append("opportunity", jobData.opportunity);
   formData.append("active", jobData.active);
   if (jobData.imageFile) {
-    formData.append("image", jobData.imageFile); // 👈 image file here
+    formData.append("image", jobData.imageFile); 
   }
 
   const token = localStorage.getItem("token");
@@ -150,7 +150,6 @@ setloader(false)
           Update Job
         </h2>
 
-        {/* Title */}
         <input
           type="text"
           name="title"
@@ -161,7 +160,6 @@ setloader(false)
           required
         />
 
-        {/* Description */}
         <textarea
           name="description"
           placeholder="Job Description"
@@ -170,7 +168,6 @@ setloader(false)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Skills */}
         <div className="mb-4">
           <label className="block font-semibold mb-1 dark:text-secondary-text-color">Skills</label>
           <div className="flex gap-2">
@@ -208,7 +205,6 @@ setloader(false)
           </div>
         </div>
 
-        {/* Budget */}
         <input
           type="number"
           name="budget"
@@ -218,7 +214,6 @@ setloader(false)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Deadline */}
         <input
           type="date"
           name="deadline"
@@ -228,7 +223,6 @@ setloader(false)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Job Type */}
         <select
           name="jobtype"
           value={jobData.jobtype}
@@ -243,7 +237,6 @@ setloader(false)
           </option>
         </select>
 
-        {/* Salary */}
         <input
           type="number"
           name="salary"
@@ -253,7 +246,6 @@ setloader(false)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Who can apply */}
         <input
           type="text"
           name="canapply"
@@ -263,7 +255,6 @@ setloader(false)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Opportunity */}
         <input
           type="number"
           name="opportunity"
@@ -273,7 +264,6 @@ setloader(false)
           className="w-full mb-4 p-2 border dark:border-border-color dark:text-text-color rounded"
         />
 
-        {/* Image Upload */}
         <div className="mb-4">
           <label className="block font-semibold mb-1 dark:text-secondary-text-color">Company Image</label>
           <input
@@ -285,7 +275,6 @@ setloader(false)
           />
         </div>
 
-        {/* Active Hiring Checkbox */}
         <div className="mb-6 flex items-center gap-2">
           <input
             type="checkbox"
@@ -299,7 +288,6 @@ setloader(false)
           </label>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           className="w-full bg-purple-500 dark:bg-accent-color dark:hover:bg-accent-light duration-200 text-white py-2 rounded hover:bg-purple-700"

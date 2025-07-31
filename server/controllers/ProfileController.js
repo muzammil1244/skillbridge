@@ -59,27 +59,22 @@ export const UpdateProfile = async (req, res) => {
 
   const updateData = {};
 
-  // Only update non-empty name
   if (typeof name === "string" && name.trim() !== "") {
     updateData.name = name.trim();
   }
 
-  // Only update non-empty email
   if (typeof email === "string" && email.trim() !== "") {
     updateData.email = email.trim();
   }
 
-  // Only update non-empty roll
   if (typeof roll === "string" && roll.trim() !== "") {
     updateData.roll = roll.trim();
   }
 
-  // Only update profile image if uploaded
   if (profileImage) {
     updateData.profileImage = profileImage;
   }
 
-  // Only update password if provided
   if (typeof password === "string" && password.trim() !== "") {
   const hashedPassword = await bcrypt.hash(password, 10);
   updateData.password = hashedPassword;
@@ -120,15 +115,13 @@ export const getAppliedJobs = async (req, res) => {
     const userId = req.user.userID;
     const userRole = req.user.roll;
 
-    // Allow only freelancers
     if (userRole !== "freelancer") {
       return res.status(403).json({ message: "Access denied. Only freelancers can view this." });
     }
 
-    // Find all jobs where this freelancer has applied
     const appliedJobs = await Job.find({ "applicants.freelancer": userId })
-      .populate("createBy", "name email") // employer info
-      .populate("applicants.freelancer", "name email") // freelancer info
+      .populate("createBy", "name email") 
+      .populate("applicants.freelancer", "name email")
       .sort({ createdAt: -1 });
 
     res.status(200).json(appliedJobs);
@@ -149,7 +142,6 @@ export const getPostedJobsWithApplicants = async (req, res) => {
   console.log(employerId,jobId);
   
   try {
-    // Job find karo aur uske applicants ko populate karo
     const job = await Job.findOne({ _id: jobId, createBy: employerId })
       .populate({
         path: "applicants.freelancer",

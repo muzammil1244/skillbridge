@@ -10,7 +10,7 @@ export default function ChatApp() {
   const [input, setInput] = useState("");
   const [file, setFile] = useState(null);
   const [conversation, setConversation] = useState([]);
-  const [sidebarOpen, setSidebarOpen] = useState(false); // For mobile drawer
+  const [sidebarOpen, setSidebarOpen] = useState(false); 
   const [getconversationId, setConversationId] = useState("");
   const [getsocket, setsocket] = useState(null);
 
@@ -80,7 +80,7 @@ export default function ChatApp() {
       setMessages(data);
       setConversationId(conversationId);
       setReceiver(user);
-      setSidebarOpen(false); // Close drawer on mobile
+      setSidebarOpen(false); 
     } catch (err) {
       console.log("Message fetch error:", err);
     }
@@ -104,14 +104,14 @@ export default function ChatApp() {
     });
 
     if (response.ok) {
-      const result = await response.json(); // ✅ yahan backend se uploaded file ka naam milta hai
+      const result = await response.json();
 
       getsocket?.emit("sendMessage", {
         conversationId: getconversationId || "new",
         senderId,
         message: input,
         reciverId: reciverId?.freelancerId || receiver?.user?.reciverId || receiver?.default?._id,
-        file: result.file || ""  // ✅ sahi file naam socket me bhejna
+        file: result.file || ""  
       });
 
       setInput("");
@@ -126,7 +126,6 @@ export default function ChatApp() {
   return (
     <div data-theme={location.state?.themtrue ? "dark" : ""} className="h-screen md:w-screen w-full   flex flex-col md:flex-row">
       
-      {/* Mobile Drawer Sidebar */}
       <div className={`fixed top-0 left-0 z-50 h-full w-64 bg-gray-100 dark:bg-bg-dark transform transition-transform duration-300 ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:static md:w-1/4 md:block overflow-y-auto`}>
         <div className="p-4 border-b flex justify-between items-center md:hidden">
           <h1 className="font-bold text-gray-600 dark:text-white">Chats</h1>
@@ -157,10 +156,9 @@ export default function ChatApp() {
       </div>
      
 
-      {/* Chat Area */}
       <div className="flex-1 flex flex-col dark:bg-bg-dark px-2 relative">
         
-        {/* Mobile Menu Button */}
+       
         <div className="md:hidden p-4 flex items-center justify-between">
           <button onClick={() => setSidebarOpen(true)} className="text-purple-500 dark:text-accent-color">
             <Menu01Icon className="w-6 h-6" />
@@ -168,7 +166,7 @@ export default function ChatApp() {
           <h1 className="text-lg font-semibold dark:text-white">Skill Bridge Chat</h1>
         </div>
 
-        {/* Header */}
+       
         {receiver?.user || receiver?.default ? (
           <div className="bg-white  dark:bg-card-color md:mt-3 dark:text-white p-4 rounded-full mt-1 flex items-center gap-4 shadow">
             <motion.img
@@ -222,7 +220,7 @@ Start by selecting a conversation from the left
 </div>          )}
         </div>
 
-        {/* Input Area */}
+        
         <div className="w-full px-6 py-4 border-t dark:border-border-color bg-white dark:bg-bg-dark fixed bottom-0 md:static">
           <div className="flex items-center gap-2 bg-gray-100 dark:bg-card-color rounded-full px-4 py-2 focus-within:ring-2 ring-border-color transition-all">
             <label className="cursor-pointer">

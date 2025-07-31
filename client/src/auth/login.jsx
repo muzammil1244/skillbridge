@@ -58,9 +58,7 @@ export const Loging = () => {
 
   return (
     <div className="md:w-screen md:h-screen bg-white flex-col-reverse md:flex-row  flex  overflow-hidden font-sans">
-      {/* Left Form Panel */}
       <div className="bg-white md:w-1/2 h-full p-10 relative md:overflow-y-auto">
-        {/* Header */}
         <motion.div
           initial={{ x: -30 }}
           animate={{ x: 0 }}
@@ -79,9 +77,7 @@ export const Loging = () => {
           </div>
         </motion.div>
 
-        {/* Form */}
         <form className="space-y-8 mt-16" onSubmit={Submitdata}>
-          {/* Email */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <div className="flex items-center gap-2">
@@ -96,7 +92,6 @@ export const Loging = () => {
             </div>
           </motion.div>
 
-          {/* Password */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
             <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
             <div className="flex items-center gap-2">
@@ -111,7 +106,6 @@ export const Loging = () => {
             </div>
           </motion.div>
 
-          {/* Submit Button */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
             <button
               type="submit"

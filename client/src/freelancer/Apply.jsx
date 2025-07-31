@@ -18,14 +18,14 @@ const jobid = location.state?.jobid;
 useEffect(() => {
   if (!jobid) {
     console.error("Job ID not found in location.state");
-    navigate("/freelancer/home"); // redirect or handle gracefully
+    navigate("/freelancer/home");
   }
 }, [jobid, navigate]);
 const [truenot, setTruenot] = useState(false);
 const handleChange = (e) => {
   const { name, value, files } = e.target;
   if (name === "resume") {
-    setForm({ ...form, resume: files[0] }); // get the actual file
+    setForm({ ...form, resume: files[0] }); 
   } else {
     setForm({ ...form, [name]: value });
   }
@@ -65,14 +65,13 @@ if(!data.ok){
 
   console.log(data)
 }
- setTruenot(true); // Set value to true
+ setTruenot(true);
 
  navigate("/freelancer/home",{
   state:{truenot:true}
  })
    
 
-    // Optional: Reset your local state after 3s if needed
     setTimeout(() => {
       setTruenot(false);
     }, 3000);
@@ -97,14 +96,12 @@ const themtrue = location.state?.themtrue ?? false;
   className="min-h-screen w-full dark:bg-border-color bg-purple-100 flex items-center justify-center px-4 py-6"
 >
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl bg-white dark:bg-bg-dark rounded-2xl shadow-xl overflow-hidden">
-    {/* Apply Form */}
     <div className="p-8">
       <h2 className="text-2xl font-bold text-purple-600 dark:text-text-color mb-6">
         Submit Your Application
       </h2>
 
       <form onSubmit={Applyfun} className="grid gap-6">
-        {/* Resume Upload */}
         <div>
           <label className="text-sm font-semibold text-gray-700 dark:text-text-color block mb-2">
             Upload Resume
@@ -118,7 +115,6 @@ const themtrue = location.state?.themtrue ?? false;
           />
         </div>
 
-        {/* Cover Letter */}
         <div>
           <label className="text-sm font-semibold text-gray-700 dark:text-text-color block mb-2">
             Why are you suitable for this opportunity?
@@ -132,7 +128,6 @@ const themtrue = location.state?.themtrue ?? false;
           ></textarea>
         </div>
 
-        {/* Rating */}
         <div>
           <label className="text-sm font-semibold text-gray-700 dark:text-text-color block mb-2">
             Rate yourself (0 to 5)
@@ -148,7 +143,6 @@ const themtrue = location.state?.themtrue ?? false;
           />
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           className="w-full bg-purple-600 dark:bg-secondary-text-color dark:text-card-color hover:bg-purple-700 transition-colors duration-200 text-white py-2 rounded-xl font-semibold text-sm shadow-lg"
@@ -164,7 +158,6 @@ const themtrue = location.state?.themtrue ?? false;
       </form>
     </div>
 
-    {/* Guidelines Panel */}
     <div className="bg-purple-50 dark:bg-card-color px-8 py-10 space-y-8">
       <div>
         <h3 className="text-xl flex items-center gap-2 font-bold text-orange-500 dark:text-accent-color mb-2">

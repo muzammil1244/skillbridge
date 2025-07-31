@@ -139,7 +139,6 @@ export const Homee = () => {
 
   useEffect(() => {
     let icon = localStorage.getItem("myValue")
-    // Only if you're not using context
     console.log("is true or false", icon)
 
     if (icon === "true") {
@@ -153,13 +152,10 @@ export const Homee = () => {
   const toggleTheme = (mode) => {
     const isDark = mode === "moon";
 
-    // 1. Update state
     setthem(isDark);
 
-    // 2. Update localStorage
     localStorage.setItem("myValue", isDark.toString());
 
-    // 3. Optional: reload page to reflect theme in other components/pages
     window.location.reload();
 
 
@@ -182,15 +178,15 @@ export const Homee = () => {
       const res = await fetch("https://skillbridge-x62a.onrender.com/review/add/review", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", // ✅ MISSING EARLIER
+          "Content-Type": "application/json", 
           "Authorization": `Bearer ${token}`
         },
-        body: JSON.stringify(getreviewdata) // ✅ JSON required
+        body: JSON.stringify(getreviewdata) 
       });
 
       if (!res.ok) {
         const errData = await res.json();
-        console.error("Backend error:", errData); // ✅ Server error message
+        console.error("Backend error:", errData); 
       } else {
         const result = await res.json();
         console.log("Review submitted:", result);
@@ -207,7 +203,7 @@ export const Homee = () => {
     const { name, value, type, files } = e.target;
 
     if (type === "file") {
-      setFormData({ ...getformdata, [name]: files[0] }); // ✅ File object, not URL
+      setFormData({ ...getformdata, [name]: files[0] }); 
     } else {
       setFormData({ ...getformdata, [name]: value });
     }
@@ -225,12 +221,11 @@ export const Homee = () => {
         const token = localStorage.getItem("token");
         settoken(token)
 
-        // 👈 Token nikaalo
 
         const jobdata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/jobs", {
           method: "GET",
           headers: {
-            "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
+            "Authorization": `Bearer ${token}`, 
           },
         })
         const data = await jobdata.json()
@@ -272,7 +267,7 @@ export const Homee = () => {
   }
 
   const profile = async () => {
-    const token = localStorage.getItem("token"); // ✅ yahin se lo
+    const token = localStorage.getItem("token");
 
     if (!token) {
       console.log("No token found");
@@ -283,7 +278,7 @@ export const Homee = () => {
       const data = await fetch("https://skillbridge-x62a.onrender.com/api/profile", {
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${token}`, // ✅ safe and direct
+          "Authorization": `Bearer ${token}`,
         },
       });
 
@@ -303,7 +298,6 @@ export const Homee = () => {
 
       setTimeout(() => {
         setShowNotification(false);
-        // clear state so it doesn't repeat on refresh
         navigate(location.pathname, { replace: true });
       }, 3000);
     }
@@ -349,13 +343,12 @@ console.log("updat fun osreked")
       const update = await fetch("https://skillbridge-x62a.onrender.com/api/user/profileupdate", {
         method: "PATCH",
         headers: {
-          "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
+          "Authorization": `Bearer ${token}`, 
         },
-        body: realFormData, // ✅ Don't stringify
+        body: realFormData, 
 
       })
 
-      // 🚀 Page refresh ho jayega
 
       setTimeout(() => {
         window.location.reload();
@@ -375,7 +368,7 @@ console.log("updat fun osreked")
   }
 
   const applicationdata = async () => {
-    const token = localStorage.getItem("token"); // ✅ yahin se lo
+    const token = localStorage.getItem("token"); 
 
     if (!token) {
       console.log("No token found");
@@ -386,7 +379,7 @@ console.log("updat fun osreked")
       const applicantdata = await fetch("https://skillbridge-x62a.onrender.com/api/freelancer/applied-jobs", {
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${token}`, // 👈 Header me token bhejo
+          "Authorization": `Bearer ${token}`, 
         },
       })
 
@@ -461,7 +454,6 @@ console.log("updat fun osreked")
       data-theme={`${themtrue ? "dark" : ""}`}
 
       className="md:w-screen md:h-screen   overflow-x-hidden bg-white md:grid md:grid-cols-8  lg:grid-cols-4">
-      {/* Sidebar */}
 
 
 
@@ -720,7 +712,6 @@ console.log("updat fun osreked")
                     </select>
                   </div>
 
-                  {/* Salary Range */}
                   <div className="space-y-1">
                     <label className="block text-sm font-semibold text-gray-700 dark:text-secondary-text-color">
                       Salary Range (₹)
@@ -737,7 +728,6 @@ console.log("updat fun osreked")
                       />
 
                     </div>
-                    {/* Range Slider for visual control */}
                     <input
                       type="range"
                       name="minSalary"
@@ -752,7 +742,6 @@ console.log("updat fun osreked")
                     </p>
                   </div>
 
-                  {/* Buttons */}
                   <div className="flex justify-between mt-4">
 
                   </div>
@@ -760,7 +749,7 @@ console.log("updat fun osreked")
                     <div
                       onClick={() => {
 
-                        setFiltertrue(false); // ✅ Close the filter box
+                        setFiltertrue(false); 
                       }}
                       className="flex items-center gap-1 text-gray-700 dark:text-white bg-white dark:bg-transparent border border-orange-500 hover:bg-orange-100 dark:hover:bg-orange-900 rounded-xl px-4 py-1 text-sm"
                     >
@@ -889,7 +878,6 @@ console.log("updat fun osreked")
           </div>
         </nav>
 
-        {/* Job Cards */}
 
 
         {truedata && truedata.length ? jobdatawithfun.map((element) => (
@@ -972,8 +960,6 @@ console.log("updat fun osreked")
         </div>
         }
 
-        {/* Modal */}
-        {/* Modal */}
         {showpage && selectedJob && (
           <motion.div
             initial={{ scale: 0 }}
@@ -983,7 +969,6 @@ console.log("updat fun osreked")
           >
             <div className="md:w-2/3 h-full  rounded-2xl overflow-y-auto dark:bg-bg-dark bg-white shadow-2xl border dark:border-border-color border-gray-300">
 
-              {/* Header */}
               <div className="flex justify-between items-center px-5 py-4 rounded-t-2xl bg-purple-100 dark:bg-border-color border-b-2 border-gray-400 dark:border-border-color">
                 <h1 className="text-purple-600 text-sm   dark:text-text-color font-semibold md:text-lg">
                   Applying to {selectedJob.title}
@@ -996,10 +981,8 @@ console.log("updat fun osreked")
                 </button>
               </div>
 
-              {/* Content */}
               <div className="w-full h-fit p-6 flex flex-col gap-6 dark:bg-card-color bg-white">
 
-                {/* Job Title + Logo */}
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <h1 className="md:text-3xl font-bold text-sm  text-orange-500">{selectedJob.title}</h1>
@@ -1012,7 +995,6 @@ console.log("updat fun osreked")
                   />
                 </div>
 
-                {/* Job Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="flex items-center gap-3 md:p-4 p-2 bg-purple-50 rounded-sm md:rounded-xl shadow-sm">
                     <Home02Icon className="md:size-[24px] size-[18px] " color="darkpink" />
@@ -1108,7 +1090,6 @@ console.log("updat fun osreked")
 
 
         <div className="w-full h-fit dark:bg-card-color bg-white p-4 rounded-xl shadow-md">
-          {/* Heading and Add Button */}
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-xl font-bold dark:text-text-color text-gray-800">Reviews</h1>
 
@@ -1117,8 +1098,8 @@ console.log("updat fun osreked")
               whileTap={{
                 scale: 0.8,
                 rotate: 180
-              }} // 🔥 Ye hai “chatka” effect
-              transition={{ type: "spring", duration: 0.5 }} // smooth bounce
+              }} 
+              transition={{ type: "spring", duration: 0.5 }}
               className="cursor-pointer bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full shadow transition duration-200"
               title="Add Review"
             >
@@ -1126,7 +1107,6 @@ console.log("updat fun osreked")
             </motion.div>
           </div>
 
-          {/* Toggle Input Section */}
           <AnimatePresence>
             {reviewtrue && (
               <motion.div
@@ -1156,7 +1136,7 @@ console.log("updat fun osreked")
                 <button
                   onClick={() => {
                     PostReview();
-                    window.location.reload(); // optional, agar animation ke baad reload chahiye
+                    window.location.reload(); 
                   }}
                   className="self-end bg-purple-500 hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded-lg"
                 >
@@ -1166,7 +1146,6 @@ console.log("updat fun osreked")
             )}
           </AnimatePresence>
 
-          {/* Review List Placeholder */}
           <div className="flex flex-wrap gap-4 justify-center px-4">
             {reviewdata.length > 0 ? reviewdata.map((element, index) => {
               return (
@@ -1174,7 +1153,6 @@ console.log("updat fun osreked")
                   key={index}
                   className="w-full sm:w-[300px] md:w-[350px] bg-white dark:bg-border-color rounded-xl shadow-md p-4"
                 >
-                  {/* Header */}
                   <div className="flex items-center justify-between mb-2">
                     <p className="font-semibold text-gray-800 dark:text-text-color">{element.name}</p>
                     <img
@@ -1184,13 +1162,11 @@ console.log("updat fun osreked")
                     />
                   </div>
 
-                  {/* Rating */}
                   <div className="flex items-center justify-start text-sm text-orange-600 mb-2">
                     <StarIcon className="w-4 h-4 mr-1" />
                     {element.rate}
                   </div>
 
-                  {/* Comment */}
                   <p className="text-gray-700 dark:text-secondary-text-color break-words whitespace-normal text-sm">
                     {element.Comment}
                   </p>

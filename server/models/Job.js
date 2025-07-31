@@ -68,11 +68,11 @@ const jobschema = new  mongoose.Schema({
 type:Number
     },
      image: {
-    type: String, // Path or filename of uploaded image
+    type: String, 
   },
   active: {
     type: Boolean,
-    default: false, // ✅ Optional
+    default: false, 
   },
     canapply:{
         type:String

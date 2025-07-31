@@ -9,4 +9,4 @@ import { Addreview, Getreview } from "../controllers/Review.js"
 router.get("/review",authenticateToken,Getreview)
 router.post("/add/review",authenticateToken,Addreview)
 
-export default router; // ✅ export default
+export default router; 

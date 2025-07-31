@@ -38,10 +38,9 @@ getapplicationdata()
   const location = useLocation()
 const themtrue = location.state?.themtrue ;
 const theme = localStorage.getItem("theme")
-  // Helper function to format date
   const formatDate = (dateStr) => {
     const options = { day: "2-digit", month: "short", year: "numeric" };
-    return new Date(dateStr).toLocaleDateString("en-GB", options); // output: 25 May 2025
+    return new Date(dateStr).toLocaleDateString("en-GB", options); 
   };
 
 

@@ -19,7 +19,7 @@ export const Getreview = async(req,res)=>{
 }
 
 export const Addreview = async (req, res) => {
-  const userId = req.user.userID; // 👈 from token
+  const userId = req.user.userID; 
   const { Comment,rate  } = req.body;
 
     if (!Comment || !rate) {

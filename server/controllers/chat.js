@@ -1,5 +1,5 @@
 import { Conversation } from "../models/Conversation.js"
-import { Message } from "../models/Message.js" // Fixed typo: Messege.js -> Message.js
+import { Message } from "../models/Message.js" 
 import User from "../models/User.js"
 
 export const StoreSenderAndReciver = async (req, res) => {
@@ -31,7 +31,7 @@ export const ConverSationList = async (req, res) => {
 
     const conversationdata = await Promise.all(
       list
-        .filter((conv) => conv.members.length === 2) // ensure valid structure
+        .filter((conv) => conv.members.length === 2) 
         .map(async (conv) => {
           const receiverId = conv.members.find((member) => member !== id);
 
@@ -52,7 +52,6 @@ export const ConverSationList = async (req, res) => {
         })
     );
 
-    // Filter out null values (invalid entries)
     const validData = conversationdata.filter(Boolean);
     res.status(200).json(validData);
   } catch (err) {
@@ -100,7 +99,7 @@ console.log( "file data ",file)
     const newMessage = new Message({ conversationId: convid, senderId, message, file });
     await newMessage.save();
 
-   return res.status(200).json({ ...newMessage._doc }); // ✅ file include hoga yahan
+   return res.status(200).json({ ...newMessage._doc }); 
 
 
   } catch (err) {

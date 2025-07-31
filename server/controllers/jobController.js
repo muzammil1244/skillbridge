@@ -89,7 +89,6 @@ export const UpdateJob = async (req, res) => {
     const updateId = req.params.updateID;
     const userId = req.user.userID;
 
-    // ✅ Ensure body is available (multipart)
     const {
       title,
       description,
@@ -102,7 +101,6 @@ export const UpdateJob = async (req, res) => {
       active,
     } = req.body;
 
-    // ✅ skill is usually stringified in FormData
     const parsedSkills = JSON.parse(req.body.skill || "[]");
 
     const updatedFields = {
@@ -118,7 +116,6 @@ export const UpdateJob = async (req, res) => {
       active: active === "true",
     };
 
-    // ✅ image check (if new image uploaded)
     if (req.file) {
       updatedFields.image = req.file.filename;
     }
@@ -149,14 +146,12 @@ export const getAppliedJobs = async (req, res) => {
   const freelancerId = req.user.userID;
 
   try {
-    // Find jobs where this freelancer sits in applicants.freelancer
     const appliedJobs = await Job.find({
       'applicants.freelancer': freelancerId
     })
-      .populate('createBy', 'name email')            // employer info
-      .populate('applicants.freelancer', 'name email')// all applicants
+      .populate('createBy', 'name email')            
+      .populate('applicants.freelancer', 'name email')
 
-    // For each job, pick only this freelancer’s application
     const result = appliedJobs.map(job => {
       const mine = job.applicants.find(a => a.freelancer._id.toString() === freelancerId);
       return {
